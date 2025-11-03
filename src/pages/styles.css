@@ -1,15 +1,6 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Homemade+Apple&display=swap');
 
-/* --- COLOR PALETTE (Based on Image) ---
- * --mustard-yellow: #96A875; (Original Earthy Olive - works well as the Mustard/Chartreuse)
- * --deep-forest: #2A3A2C; (Original Deep Forest - primary dark text)
- * --soft-peach: #F2A388; (Original Soft Peach - primary accent)
- * --warm-neutral: #FCE6D5; (Original Warm Neutral - light background)
- * --stripe-purple: #9A7B9B; (New - Inspired by the purple stripes in the image)
- * --checked-mustard: #E9D294; (New - Lighter mustard for patterns)
- * --light-green-check: #F1F4E7; (New - Light accent for patterns)
- */
 
 .full_page {
   width: 100vw;
@@ -23,17 +14,17 @@
 /* ----------------------------------HERO SECTION ----------------------------------------------*/
 .hero_section {
   width: 100vw;
-  min-height: 70vh;
+  height: calc(100vh - 80px); 
 
- background-color: #9A7B9B; 
-  background-image: repeating-linear-gradient(90deg, #9A7B9B 0, #9A7B9B 30px, #FCE6D5 30px, #FCE6D5 60px);
+ background-color: rgba(227, 198, 156); 
+  background-image: repeating-linear-gradient(90deg, rgba(227, 198, 156) 0, rgba(227, 198, 156) 30px, rgba(238, 232, 221) 30px, rgba(238, 232, 221) 60px);
  
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
   box-sizing: border-box;
-  color: #2A3A2C; 
+  color: rgba(235, 134, 78); 
 }
 
 .hero_container {
@@ -56,33 +47,33 @@
 .hero_content {
   text-align: left; 
   align-items: flex-start; 
-  padding-left: 4rem; /* Increased padding */
+  padding-left: 4rem; 
 }
 
 .hero_image img {
-  width: 85%;
+  margin-top: 70px;
+  width: 75%;
   max-width: 450px;
-  /* NEW: Softer, more organic border-radius inspired by the graphic shapes */
   border-radius: 40% 60% 70% 30% / 35% 65% 55% 45%; 
-  box-shadow: 0 15px 40px rgba(42, 58, 44, 0.25); /* Stronger, deeper shadow */
-  border: 5px solid #F2A388; /* Soft Peach accent border, slightly thicker */
+  box-shadow: 0 15px 40px rgba(42, 58, 44, 0.25); 
+  border: 5px solid rgba(235, 134, 78); 
 }
 
 .hero_content h1 {
   margin-top: 0;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  color: #2A3A2C; 
-  font-size: 4.5rem; /* Even more impactful */
+  color: rgba(235, 134, 78); 
+  font-size: 4.5rem;
   line-height: 1.1;
 }
 
 .hero_content h2 { 
   margin-top: 0;
-  font-family: 'Homemade Apple', cursive; /* Handwritten script */
+  font-family: 'Homemade Apple', cursive; 
   font-weight: 400;
-  color: #F2A388; /* Changed accent script to Soft Peach for contrast */
-  font-size: 3rem; /* Prominent script */
+  color: rgba(235, 134, 78);
+  font-size: 3rem; 
   margin-bottom: 1.5rem;
 }
 
@@ -96,8 +87,8 @@
 /* Redesigned CTA Button: Outlined/Ghost style */
 .cta_btn {
   background-color: transparent; 
-  border: 3px solid #2A3A2C; /* Deep Forest outline, thicker */
-  color: #2A3A2C; 
+  border: 3px solid rgba(235, 134, 78); /* Deep Forest outline, thicker */
+  color: rgba(235, 134, 78); 
   font-family: 'Playfair Display', serif; /* Changed to the bolder serif for the button text */
   font-weight: 700;
   padding: 0.9rem 2.2rem;
@@ -111,9 +102,9 @@
 }
 
 .cta_btn:hover {
-  background-color: #96A875; /* Mustard/Chartreuse solid fill on hover */
-  color: white; 
-  border-color: #96A875; 
+  background-color: rgba(235, 134, 78); 
+  color: rgba(238, 232, 221); 
+  border-color: rgba(238, 232, 221); 
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
 }
@@ -149,12 +140,11 @@
 .projects_section {
   width: 100vw;
   padding: 6rem 4rem;
-  /* NEW: Using the Purple Stripe background */
-  background-color: #F1F4E7;
+  background-color: rgba(209, 195, 150);
   
   text-align: center;
   box-sizing: border-box;
-  color: #2A3A2C; 
+  color: rgba(235, 134, 78); 
   font-family: 'Playfair Display', serif; 
 }
 
@@ -163,9 +153,8 @@
   margin-bottom: 4rem;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  color: #2A3A2C;
+  color: rgba(235, 134, 78);
   position: relative;
-  /* NEW: Decorative underline like a sketchy brushstroke */
 }
 
 .projects_section .section_title::after {
@@ -176,7 +165,7 @@
     transform: translateX(-50%);
     width: 100px;
     height: 4px;
-    background-color: #F2A388;
+    background-color: rgba(238, 232, 221);
     border-radius: 2px;
 }
 
@@ -190,10 +179,9 @@
 }
 
 .project_card {
-  background-color: white; 
-  /* NEW: Mustard/Chartreuse border */
-  border: 4px solid #96A875; 
-  border-radius: 20px; /* More rounded, softer corners */
+  background-color: rgba(238, 232, 221); 
+  border: 4px solid rgba(235, 134, 78); 
+  border-radius: 20px; 
   padding: 3rem 2rem;
   box-sizing: border-box;
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
@@ -201,22 +189,21 @@
 }
 
 .project_card:hover {
-  transform: translateY(-8px) rotate(-1deg); /* Slight lift and tilt for playfulness */
-  /* Shadow with a hint of Soft Peach */
-  box-shadow: 0 15px 35px rgba(242, 163, 136, 0.6); 
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 0 15px 35px rgba(238, 232, 221, 0.6); 
 }
 
 .project_card h3 {
-  font-family: 'Homemade Apple', cursive; /* Handwritten Script for titles */
+  font-family: 'Homemade Apple', cursive; 
   font-weight: 400;
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
-  color: #F2A388; /* Soft Peach accent title color */
+  color:  rgba(235, 134, 78);
 }
 
 .project_card p {
   font-family: 'Cormorant Garamond', serif; 
-  color: #2A3A2C;
+  color: rgba(235, 134, 78);
   margin-bottom: 2rem;
   font-size: 1.2rem;
   font-weight: 400; 
@@ -230,22 +217,24 @@
   justify-content: center;
 }
 
+
 .project_card .skills span {
   border: none;
   border-radius: 30px; 
   padding: 0.5rem 1.2rem;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
-  background-color: #2A3A2C; /* Deep Forest background */
-  color: #FCE6D5; /* Warm Neutral text */
+  background-color: rgba(235, 134, 78); 
+  color: rgba(238, 232, 221);
   transition: background-color 0.3s ease;
   font-size: 1rem;
-  text-transform: capitalize; /* Softer casing */
+  text-transform: capitalize; 
 }
 
 .project_card .skills span:hover {
-  background-color: #96A875; /* Mustard/Chartreuse hover */
-  color: white;
+  background-color: rgba(238, 232, 221); 
+  color:  rgba(235, 134, 78); 
+  border: 2px solid rgba(235, 134, 78); 
 }
 
 
@@ -255,21 +244,21 @@
   padding: 6rem 4rem;
   text-align: center;
   /* Replaced background image with the checked pattern from the image */
-  background-image: linear-gradient(45deg, #E9D294 25%, transparent 25%),
-                    linear-gradient(-45deg, #E9D294 25%, transparent 25%),
-                    linear-gradient(45deg, transparent 75%, #E9D294 75%),
-                    linear-gradient(-45deg, transparent 75%, #E9D294 75%);
+  background-image: linear-gradient(45deg,  rgba(238, 232, 221) 25%, transparent 25%),
+                    linear-gradient(-45deg,  rgba(238, 232, 221) 25%, transparent 25%),
+                    linear-gradient(45deg, transparent 75%,  rgba(238, 232, 221) 75%),
+                    linear-gradient(-45deg, transparent 75%,  rgba(238, 232, 221) 75%);
   background-size: 30px 30px; /* Larger checks */
-  background-color: #F1F4E7; /* Light Green Check base color */
+  background-color: rgba(209, 195, 150); 
   box-sizing: border-box;
-  color: white; 
+  color:  rgba(238, 232, 221); 
   font-family: 'Playfair Display', serif;
 }
 
 .skills_section .section_title {
   font-size: 3rem;
   margin-bottom: 4rem;
-  color: #2A3A2C; /* Deep Forest title on Mustard background */
+  color: rgba(235, 134, 78);
   font-weight: 700;
 }
 
@@ -283,13 +272,12 @@
 }
 
 .skills_grid .skill {
-  /* Pill-shaped, Soft Peach background */
-  border: 3px solid #F2A388; /* Soft Peach outline */
+
   border-radius: 40px; 
   padding: 0.8rem 1.8rem;
   font-weight: 600; 
-  background-color: #F2A388; 
-  color: white; /* White text on Soft Peach */
+  background-color: rgba(235, 134, 78); 
+  color:  rgba(238, 232, 221); 
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.2rem;
   transition: all 0.3s ease;
@@ -297,9 +285,9 @@
 }
 
 .skills_grid .skill:hover {
-  background-color: #2A3A2C; /* Deep Forest hover */
-  color: #FCE6D5; 
-  border-color: #2A3A2C;
+  background-color: rgba(238, 232, 221); 
+  color:  rgba(235, 134, 78); 
+  border: 3px solid rgba(235, 134, 78); 
 }
 
 
@@ -307,16 +295,16 @@
 .contact_section {
   width: 100vw;
   padding: 6rem 2rem;
-  background-color: #FCE6D5; /* Warm Neutral light background */
+  background-color: rgba(227, 198, 156); 
   text-align: center;
-  color: #2A3A2C; 
+  color: rgba(235, 134, 78); 
   box-sizing: border-box;
 }
 
 .contact_section .section_title {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
-  color: #2A3A2C; 
+  color: rgba(235, 134, 78); 
   margin-bottom: 3rem;
   font-weight: 700;
 }
@@ -334,12 +322,11 @@
 .contact_form input,
 .contact_form textarea {
   width: 100%;
-  background-color: white; 
-  /* NEW: Border color is Purple Stripe */
-  border: 2px solid #9A7B9B; 
-  border-radius: 12px; /* Softer rounding */
+  background-color:  rgba(238, 232, 221); 
+  border: 2px solid rgba(235, 134, 78); 
+  border-radius: 12px; 
   padding: 1rem;
-  color: #2A3A2C; 
+  color: rgba(235, 134, 78); 
   font-size: 1.1rem;
   outline: none;
   font-family: 'Cormorant Garamond', serif;
@@ -348,7 +335,7 @@
 
 .contact_form input:focus,
 .contact_form textarea:focus {
-  border-color: #F2A388;
+  border-color: rgba(238, 232, 221);
   box-shadow: 0 0 10px rgba(242, 163, 136, 0.7); 
 }
 
@@ -359,8 +346,8 @@
 
 /* Contact Button: Filled with Deep Forest */
 .contact_btn {
-  background-color: #2A3A2C; 
-  color: #FCE6D5;
+  background-color: rgba(235, 134, 78); 
+  color: rgba(238, 232, 221);
   border: none;
   padding: 0.9rem 2.2rem;
   border-radius: 40px; 
@@ -375,8 +362,9 @@
 }
 
 .contact_btn:hover {
-  background-color: #96A875;
-  color: white;
+    background-color: rgba(238, 232, 221); 
+  color:  rgba(235, 134, 78); 
+  border: 3px solid rgba(235, 134, 78); 
 }
 
 /* Social Links */
@@ -388,7 +376,7 @@
 }
 
 .social_links a {
-  color: #2A3A2C; 
+  color: rgba(235, 134, 78); 
   text-decoration: none;
   font-weight: 600;
   font-family: 'Playfair Display', serif;
@@ -397,7 +385,7 @@
 }
 
 .social_links a:hover {
-  color: #9A7B9B; 
+  color: rgba(238, 232, 221); 
 }
 
 /* Responsive */
