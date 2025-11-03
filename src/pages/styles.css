@@ -1,25 +1,39 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Homemade+Apple&display=swap');
 
+/* --- COLOR PALETTE (Based on Image) ---
+ * --mustard-yellow: #96A875; (Original Earthy Olive - works well as the Mustard/Chartreuse)
+ * --deep-forest: #2A3A2C; (Original Deep Forest - primary dark text)
+ * --soft-peach: #F2A388; (Original Soft Peach - primary accent)
+ * --warm-neutral: #FCE6D5; (Original Warm Neutral - light background)
+ * --stripe-purple: #9A7B9B; (New - Inspired by the purple stripes in the image)
+ * --checked-mustard: #E9D294; (New - Lighter mustard for patterns)
+ * --light-green-check: #F1F4E7; (New - Light accent for patterns)
+ */
 
 .full_page {
   width: 100vw;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+  font-family: 'Cormorant Garamond', serif;
+
 }
 
 /* ----------------------------------HERO SECTION ----------------------------------------------*/
 .hero_section {
   width: 100vw;
-  min-height: 100vh;
-  background: url('./src/assets/background.png') no-repeat center center/cover;
+  min-height: 70vh;
+
+ background-color: #9A7B9B; 
+  background-image: repeating-linear-gradient(90deg, #9A7B9B 0, #9A7B9B 30px, #FCE6D5 30px, #FCE6D5 60px);
+ 
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 4rem 2rem;
   box-sizing: border-box;
-  color: #24284c;
+  color: #2A3A2C; 
 }
 
 .hero_container {
@@ -42,42 +56,66 @@
 .hero_content {
   text-align: left; 
   align-items: flex-start; 
-  padding-left: 2rem;
+  padding-left: 4rem; /* Increased padding */
 }
 
 .hero_image img {
-  width: 80%;
-  max-width: 400px;
-  border-radius: 50%;
-  box-shadow: 0 8px 20px rgba(36, 40, 76, 0.3);
+  width: 85%;
+  max-width: 450px;
+  /* NEW: Softer, more organic border-radius inspired by the graphic shapes */
+  border-radius: 40% 60% 70% 30% / 35% 65% 55% 45%; 
+  box-shadow: 0 15px 40px rgba(42, 58, 44, 0.25); /* Stronger, deeper shadow */
+  border: 5px solid #F2A388; /* Soft Peach accent border, slightly thicker */
 }
 
-.hero_content h1,
-.hero_content h2 {
+.hero_content h1 {
   margin-top: 0;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  color: #24284c; 
+  color: #2A3A2C; 
+  font-size: 4.5rem; /* Even more impactful */
+  line-height: 1.1;
 }
 
+.hero_content h2 { 
+  margin-top: 0;
+  font-family: 'Homemade Apple', cursive; /* Handwritten script */
+  font-weight: 400;
+  color: #F2A388; /* Changed accent script to Soft Peach for contrast */
+  font-size: 3rem; /* Prominent script */
+  margin-bottom: 1.5rem;
+}
+
+.hero_content p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    max-width: 500px;
+}
+
+/* Redesigned CTA Button: Outlined/Ghost style */
 .cta_btn {
-  background-color: #24284c; 
-  border: 2px solid #24284c; 
-  color: #fcf2dc; 
-  font-family: 'Playfair Display', serif;
-  font-weight: 500;
-  padding: 0.5rem 1.2rem;
-  border-radius: 4px;
+  background-color: transparent; 
+  border: 3px solid #2A3A2C; /* Deep Forest outline, thicker */
+  color: #2A3A2C; 
+  font-family: 'Playfair Display', serif; /* Changed to the bolder serif for the button text */
+  font-weight: 700;
+  padding: 0.9rem 2.2rem;
+  border-radius: 40px; /* More pronounced pill shape */
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   display: inline-block;
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 3px; /* Wider spacing */
 }
 
 .cta_btn:hover {
-  background-color: #fcf2dc; 
-  color: #24284c; 
-  border-color:  #24284c; 
+  background-color: #96A875; /* Mustard/Chartreuse solid fill on hover */
+  color: white; 
+  border-color: #96A875; 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
 }
 
 /* Responsive adjustments */
@@ -91,147 +129,196 @@
     padding-left: 0;
     text-align: center;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 3rem;
   }
 
   .hero_image img {
-    width: 60%;
+    width: 70%;
+  }
+
+  .hero_content h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero_content h2 {
+    font-size: 2rem;
   }
 }
 
 /* ------------------------PROJECTS SECTION ------------------------------------------*/
 .projects_section {
   width: 100vw;
-  padding: 5rem 4rem;
-  background-color: #c1c89a; 
+  padding: 6rem 4rem;
+  /* NEW: Using the Purple Stripe background */
+  background-color: #F1F4E7;
+  
   text-align: center;
   box-sizing: border-box;
-  color: #24284c;
+  color: #2A3A2C; 
   font-family: 'Playfair Display', serif; 
 }
 
 .projects_section .section_title {
-  font-size: 2.2rem;
-  margin-bottom: 3rem;
+  font-size: 3rem; 
+  margin-bottom: 4rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #2A3A2C;
+  position: relative;
+  /* NEW: Decorative underline like a sketchy brushstroke */
+}
+
+.projects_section .section_title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background-color: #F2A388;
+    border-radius: 2px;
 }
 
 .projects_grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
   width: 100%;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .project_card {
-  background-color: #fcf2dc; 
-  border: 2px solid #24284c; 
-  border-radius: 8px;
-  padding: 2rem;
+  background-color: white; 
+  /* NEW: Mustard/Chartreuse border */
+  border: 4px solid #96A875; 
+  border-radius: 20px; /* More rounded, softer corners */
+  padding: 3rem 2rem;
   box-sizing: border-box;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
   text-align: center;
 }
 
 .project_card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(36, 40, 76, 0.3);
+  transform: translateY(-8px) rotate(-1deg); /* Slight lift and tilt for playfulness */
+  /* Shadow with a hint of Soft Peach */
+  box-shadow: 0 15px 35px rgba(242, 163, 136, 0.6); 
 }
 
 .project_card h3 {
-  font-family: 'Playfair Display', serif; 
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #24284c;
+  font-family: 'Homemade Apple', cursive; /* Handwritten Script for titles */
+  font-weight: 400;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #F2A388; /* Soft Peach accent title color */
 }
 
 .project_card p {
-  font-family: 'Playfair Display', serif;
-  color: #24284c;
-  margin-bottom: 1.5rem;
+  font-family: 'Cormorant Garamond', serif; 
+  color: #2A3A2C;
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-weight: 400; 
 }
 
-/* Skills within each project */
+/* Skills within each project - pill tags with Deep Forest background */
 .project_card .skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.8rem;
   justify-content: center;
 }
 
 .project_card .skills span {
-  border: 2px solid #24284c;
-  border-radius: 4px;
-  padding: 0.3rem 0.8rem;
-  font-family: 'Playfair Display', serif;
-  font-weight: 500;
-  background-color: #fcf2dc;
-  color: #24284c;
-  transition: all 0.3s ease;
+  border: none;
+  border-radius: 30px; 
+  padding: 0.5rem 1.2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  background-color: #2A3A2C; /* Deep Forest background */
+  color: #FCE6D5; /* Warm Neutral text */
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+  text-transform: capitalize; /* Softer casing */
 }
 
 .project_card .skills span:hover {
-  background-color: #24284c;
-  color: #fcf2dc;
-  cursor: default;
+  background-color: #96A875; /* Mustard/Chartreuse hover */
+  color: white;
 }
 
 
 /* ------------------------------SKILLS SECTION -------------------------------------------------*/
 .skills_section {
   width: 100vw;
-  padding: 5rem 4rem;
+  padding: 6rem 4rem;
   text-align: center;
-  background-color: #fcf2dc; 
+  /* Replaced background image with the checked pattern from the image */
+  background-image: linear-gradient(45deg, #E9D294 25%, transparent 25%),
+                    linear-gradient(-45deg, #E9D294 25%, transparent 25%),
+                    linear-gradient(45deg, transparent 75%, #E9D294 75%),
+                    linear-gradient(-45deg, transparent 75%, #E9D294 75%);
+  background-size: 30px 30px; /* Larger checks */
+  background-color: #F1F4E7; /* Light Green Check base color */
   box-sizing: border-box;
-  color: #24284c; 
+  color: white; 
   font-family: 'Playfair Display', serif;
 }
 
 .skills_section .section_title {
-  font-size: 2.2rem;
-  margin-bottom: 3rem;
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  color: #2A3A2C; /* Deep Forest title on Mustard background */
+  font-weight: 700;
 }
 
 .skills_grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.8rem;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .skills_grid .skill {
-  border: 2px solid #24284c;
-  border-radius: 4px;
-  padding: 0.5rem 1rem;
-  font-weight: 500;
-  background-color: #fcf2dc;
-  color: #24284c;
+  /* Pill-shaped, Soft Peach background */
+  border: 3px solid #F2A388; /* Soft Peach outline */
+  border-radius: 40px; 
+  padding: 0.8rem 1.8rem;
+  font-weight: 600; 
+  background-color: #F2A388; 
+  color: white; /* White text on Soft Peach */
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .skills_grid .skill:hover {
-  background-color: #24284c;
-  color: #fcf2dc;
-  cursor: default;
+  background-color: #2A3A2C; /* Deep Forest hover */
+  color: #FCE6D5; 
+  border-color: #2A3A2C;
 }
 
 
 /* -------------------------------------------CONTACT SECTION -------------------------------*/
 .contact_section {
   width: 100vw;
-  padding: 5rem 2rem;
-  background-color: #c1c89a; 
+  padding: 6rem 2rem;
+  background-color: #FCE6D5; /* Warm Neutral light background */
   text-align: center;
-  color: #24284c; 
+  color: #2A3A2C; 
   box-sizing: border-box;
 }
 
 .contact_section .section_title {
-  font-family:  'Playfair Display', serif;
-  font-size: 2.2rem;
-  color: #24284c; 
-  margin-bottom: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: #2A3A2C; 
+  margin-bottom: 3rem;
+  font-weight: 700;
 }
 
 .contact_form {
@@ -239,69 +326,78 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  max-width: 500px;
-  margin: 0 auto 3rem auto;
+  gap: 1.2rem;
+  max-width: 550px;
+  margin: 0 auto 3.5rem auto;
 }
 
 .contact_form input,
 .contact_form textarea {
   width: 100%;
-  background-color: rgba(193, 200, 154, 0.6);
-  border: 1px solid #24284c;
-  border-radius: 4px;
-  padding: 0.8rem;
-  color: #24284c; 
-  font-size: 1rem;
+  background-color: white; 
+  /* NEW: Border color is Purple Stripe */
+  border: 2px solid #9A7B9B; 
+  border-radius: 12px; /* Softer rounding */
+  padding: 1rem;
+  color: #2A3A2C; 
+  font-size: 1.1rem;
   outline: none;
+  font-family: 'Cormorant Garamond', serif;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact_form input:focus,
 .contact_form textarea:focus {
-  border-color: #24284c;
-  box-shadow: 0 0 8px rgba(36, 40, 76, 0.5);
+  border-color: #F2A388;
+  box-shadow: 0 0 10px rgba(242, 163, 136, 0.7); 
 }
 
 .contact_form textarea {
-  height: 120px;
-  resize: none;
+  height: 150px;
+  resize: vertical; 
 }
 
+/* Contact Button: Filled with Deep Forest */
 .contact_btn {
-  background-color: #24284c;
-  color: #fcf2dc;
+  background-color: #2A3A2C; 
+  color: #FCE6D5;
   border: none;
-  padding: 0.8rem 1.4rem;
-  border-radius: 4px;
-  font-family:  'Playfair Display', serif;
-  font-weight: bold;
+  padding: 0.9rem 2.2rem;
+  border-radius: 40px; 
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-top: 1.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .contact_btn:hover {
-  background-color: #fcf2dc; 
-  color: #24284c;
+  background-color: #96A875;
+  color: white;
 }
 
 /* Social Links */
 .social_links {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .social_links a {
-  color: #24284c; /* Updated text color */
+  color: #2A3A2C; 
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
   transition: color 0.3s ease;
 }
 
 .social_links a:hover {
-  color: #fcf2dc;
+  color: #9A7B9B; 
 }
 
 /* Responsive */

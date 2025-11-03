@@ -1,15 +1,28 @@
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Dancing+Script&display=swap');
+/* Import Google Fonts - Using Playfair Display (bold serif), Cormorant Garamond (elegant serif), and Homemade Apple (script) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Homemade+Apple&display=swap');
+
+/* --- COLOR PALETTE (Based on Image) ---
+ * --mustard-yellow: #96A875; (Original Earthy Olive - works well as the Mustard/Chartreuse)
+ * --deep-forest: #2A3A2C; (Original Deep Forest - primary dark text)
+ * --soft-peach: #F2A388; (Original Soft Peach - primary accent)
+ * --warm-neutral: #FCE6D5; (Original Warm Neutral - light background)
+ * --stripe-purple: #9A7B9B; (New - Inspired by the purple stripes in the image)
+ * --checked-mustard: #E9D294; (New - Lighter mustard for patterns)
+ * --light-green-check: #F1F4E7; (New - Light accent for patterns)
+ */
 
 .header {
   position: sticky;
   top: 0;
   width: 100%;
-  background-color: #fcf2dc; 
+  /* NEW: Background is the light neutral color */
+  background-color: #E9D294 ; 
+
   display: flex;
   justify-content: center;
   z-index: 1000;
-
+  /* NEW: Softer shadow matching the mood */
+  box-shadow: 0 2px 8px rgba(150, 168, 117, 0.2); 
 }
 
 .header_container {
@@ -24,65 +37,76 @@
 /* Navigation */
 .header_nav {
   display: flex;
-  gap: 2rem;
+  gap: 3rem; /* Increased gap for a more spacious, elegant look */
 }
 
 .nav_link {
-  color: #24284c; 
-  font-family: 'Playfair Display', serif;
+  color: #2A3A2C; /* Deep Forest */
+  font-family: 'Playfair Display', serif; /* Changed to the bolder, more impactful serif */
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.15rem; /* Slightly larger */
   text-decoration: none;
   position: relative;
   transition: color 0.3s ease;
+  text-transform: none; /* Removed uppercase for a softer look */
+  letter-spacing: 0.5px;
 }
 
 .nav_link::after {
   content: '';
   position: absolute;
-  bottom: -4px;
-  left: 0;
+  bottom: -6px; /* Moved down slightly */
+  left: 50%; /* Start from center */
+  transform: translateX(-50%); 
   width: 0%;
-  height: 2px;
-  background-color: #24284c;
-  transition: width 0.3s ease;
+  height: 3px; /* Thicker underline */
+  background-color: #F2A388; /* Soft Peach underline */
+  transition: width 0.4s ease-out;
 }
 
 .nav_link:hover {
-  color: #24284c;
+  color: #96A875; /* Mustard/Chartreuse text hover */
 }
 
 .nav_link:hover::after {
   width: 100%;
+  background-color: #96A875; /* Mustard/Chartreuse underline */
 }
 
-/* ---------------------------------Resume Button ---------------------------------------------*/
+/* ---------------------------------Button (Pill-Shaped) ---------------------------------------------*/
 .resume_btn {
-  background-color: #24284c; 
-  border: 2px solid #24284c; 
-  color: #fcf2dc; 
-   font-family: 'Playfair Display', serif;
-  font-weight: 500;
-  padding: 0.5rem 1.2rem;
-  border-radius: 4px;
+  background-color: #9A7B9B; /* NEW: Purple Stripe color for button background */
+  border: 2px solid #9A7B9B; 
+  color: white; 
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  padding: 0.7rem 1.8rem; /* Slightly larger padding */
+  border-radius: 30px; 
   text-decoration: none;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1.5px; /* Increased letter-spacing for elegance */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Subtle lift */
 }
 
 .resume_btn:hover {
-  background-color: #fcf2dc; 
-  color: #24284c; 
-  border-color:  #24284c; 
+  background-color: #F2A388; /* Soft Peach hover background */
+  color: #2A3A2C; /* Deep Forest text */
+  border-color: #F2A388; 
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .header_container {
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
   .header_nav {
-    gap: 1rem;
+    gap: 1.5rem;
+  }
+
+  .nav_link {
+    font-size: 1rem;
   }
 }
