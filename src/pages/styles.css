@@ -13,18 +13,18 @@
 
 /* ----------------------------------HERO SECTION ----------------------------------------------*/
 .hero_section {
-  width: 100vw;
-  height: calc(100vh - 80px); 
+  width: 100%;
+  height: 100vh; 
 
- background-color: rgba(227, 198, 156); 
-  background-image: repeating-linear-gradient(90deg, rgba(227, 198, 156) 0, rgba(227, 198, 156) 30px, rgb(238, 232, 221) 30px, rgb(238, 232, 221) 60px);
+ background-color: rgb(117, 97, 157); 
+  background-image: repeating-linear-gradient(90deg, rgb(117, 97, 157) 0, rgb(117, 97, 157) 30px, rgb(190, 174, 219) 30px, rgb(190, 174, 219) 60px);
  
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
   box-sizing: border-box;
-  color: rgb(235, 134, 78); 
+  color: rgb(63, 42, 82); 
 }
 
 .hero_container {
@@ -51,19 +51,19 @@
 }
 
 .hero_image img {
-  margin-top: 70px;
+  margin-top: 145px;
   width: 75%;
   max-width: 450px;
   border-radius: 40% 60% 70% 30% / 35% 65% 55% 45%; 
-  box-shadow: 0 15px 40px rgba(235, 134, 78, 0.25); 
-  border: 5px solid rgb(235, 134, 78); 
+  box-shadow: 0 15px 40px rgba(63, 42, 82, 0.25); 
+  border: 5px solid rgb(63, 42, 82); 
 }
 
 .hero_content h1 {
   margin-top: 0;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  color: rgb(235, 134, 78); 
+  color: rgb(63, 42, 82); 
   font-size: 4.5rem;
   line-height: 1.1;
 }
@@ -72,7 +72,7 @@
   margin-top: 0;
   font-family: 'Homemade Apple', cursive; 
   font-weight: 400;
-  color: rgb(235, 134, 78);
+  color: rgb(63, 42, 82);
   font-size: 3rem; 
   margin-bottom: 1.5rem;
 }
@@ -87,25 +87,25 @@
 /* Redesigned CTA Button: Outlined/Ghost style */
 .cta_btn {
   background-color: transparent; 
-  border: 3px solid rgb(235, 134, 78); /* Deep Forest outline, thicker */
-  color: rgb(235, 134, 78); 
-  font-family: 'Playfair Display', serif; /* Changed to the bolder serif for the button text */
-  font-weight: 700;
+  border: 3px solid rgb(63, 42, 82); 
+  color: rgb(63, 42, 82); 
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
   padding: 0.9rem 2.2rem;
-  border-radius: 40px; /* More pronounced pill shape */
+  border-radius: 40px; 
   text-decoration: none;
   transition: all 0.4s ease;
   display: inline-block;
   margin-top: 2.5rem;
   text-transform: uppercase;
-  letter-spacing: 3px; /* Wider spacing */
+  letter-spacing: 3px; 
 }
 
 .cta_btn:hover {
-  background-color: rgb(235, 134, 78); 
-  color: rgb(238, 232, 221); 
-  border-color: rgb(238, 232, 221); 
-  box-shadow: 0 6px 15px rgba(235, 134, 78 0.2);
+  background-color: rgb(63, 42, 82); 
+  color: rgb(190, 174, 219); 
+  border-color: rgb(190, 174, 219); 
+  box-shadow: 0 6px 15px rgba(63, 42, 82 0.2);
   transform: translateY(-2px);
 }
 
@@ -138,13 +138,13 @@
 
 /* ------------------------PROJECTS SECTION ------------------------------------------*/
 .projects_section {
-  width: 100vw;
+  width: 100%;
   padding: 6rem 4rem;
-  background-color: rgba(209, 195, 150);
+  background-color: rgb(230, 239, 247);
   
   text-align: center;
   box-sizing: border-box;
-  color: rgb(235, 134, 78); 
+  color: rgb(63, 42, 82); 
   font-family: 'Playfair Display', serif; 
 }
 
@@ -153,7 +153,7 @@
   margin-bottom: 4rem;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  color: rgb(235, 134, 78);
+  color: rgb(63, 42, 82);
   position: relative;
 }
 
@@ -165,7 +165,7 @@
     transform: translateX(-50%);
     width: 100px;
     height: 4px;
-    background-color: rgb(238, 232, 221);
+    background-color: rgb(190, 174, 219);
     border-radius: 2px;
 }
 
@@ -179,8 +179,8 @@
 }
 
 .project_card {
-  background-color: rgb(238, 232, 221); 
-  border: 4px solid rgb(235, 134, 78); 
+  background-color: rgb(190, 174, 219); 
+  border: 4px solid rgb(63, 42, 82); 
   border-radius: 20px; 
   padding: 3rem 2rem;
   box-sizing: border-box;
@@ -198,12 +198,12 @@
   font-weight: 400;
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
-  color:  rgb(235, 134, 78);
+  color:  rgb(63, 42, 82);
 }
 
 .project_card p {
   font-family: 'Cormorant Garamond', serif; 
-  color: rgb(235, 134, 78);
+  color: rgb(63, 42, 82);
   margin-bottom: 2rem;
   font-size: 1.2rem;
   font-weight: 400; 
@@ -224,41 +224,41 @@
   padding: 0.5rem 1.2rem;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
-  background-color: rgb(235, 134, 78); 
-  color: rgb(238, 232, 221);
+  background-color: rgb(63, 42, 82); 
+  color: rgb(190, 174, 219);
   transition: background-color 0.3s ease;
   font-size: 1rem;
   text-transform: capitalize; 
 }
 
 .project_card .skills span:hover {
-  background-color: rgb(238, 232, 221); 
-  color:  rgb(235, 134, 78); 
-  border: 2px solid rgb(235, 134, 78); 
+  background-color: rgb(190, 174, 219); 
+  color:  rgb(63, 42, 82); 
+  border: 2px solid rgb(63, 42, 82); 
 }
 
 
 /* ------------------------------SKILLS SECTION -------------------------------------------------*/
 .skills_section {
-  width: 100vw;
+  width: 100%;
   padding: 6rem 4rem;
   text-align: center;
   /* Replaced background image with the checked pattern from the image */
-  background-image: linear-gradient(45deg,  rgb(238, 232, 221) 25%, transparent 25%),
-                    linear-gradient(-45deg,  rgb(238, 232, 221) 25%, transparent 25%),
-                    linear-gradient(45deg, transparent 75%,  rgb(238, 232, 221) 75%),
-                    linear-gradient(-45deg, transparent 75%,  rgb(238, 232, 221) 75%);
+  background-image: linear-gradient(45deg,  rgb(190, 174, 219) 25%, transparent 25%),
+                    linear-gradient(-45deg,  rgb(190, 174, 219) 25%, transparent 25%),
+                    linear-gradient(45deg, transparent 75%,  rgb(190, 174, 219) 75%),
+                    linear-gradient(-45deg, transparent 75%,  rgb(190, 174, 219) 75%);
   background-size: 30px 30px; /* Larger checks */
-  background-color: rgba(209, 195, 150); 
+  background-color: rgb(230, 239, 247); 
   box-sizing: border-box;
-  color:  rgb(238, 232, 221); 
+  color:  rgb(190, 174, 219); 
   font-family: 'Playfair Display', serif;
 }
 
 .skills_section .section_title {
   font-size: 3rem;
   margin-bottom: 4rem;
-  color: rgb(235, 134, 78);
+  color: rgb(63, 42, 82);
   font-weight: 700;
 }
 
@@ -276,35 +276,35 @@
   border-radius: 40px; 
   padding: 0.8rem 1.8rem;
   font-weight: 600; 
-  background-color: rgb(235, 134, 78); 
-  color:  rgb(238, 232, 221); 
+  background-color: rgb(63, 42, 82); 
+  color:  rgb(190, 174, 219); 
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.2rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(235, 134, 78 0.15);
+  box-shadow: 0 4px 8px rgba(63, 42, 82 0.15);
 }
 
 .skills_grid .skill:hover {
-  background-color: rgb(238, 232, 221); 
-  color:  rgb(235, 134, 78); 
-  border: 3px solid rgb(235, 134, 78); 
+  background-color: rgb(190, 174, 219); 
+  color:  rgb(63, 42, 82); 
+  border: 3px solid rgb(63, 42, 82); 
 }
 
 
 /* -------------------------------------------CONTACT SECTION -------------------------------*/
 .contact_section {
-  width: 100vw;
+  width: 100%;
   padding: 6rem 2rem;
-  background-color: rgba(227, 198, 156); 
+  background-color: rgb(117, 97, 157); 
   text-align: center;
-  color: rgb(235, 134, 78); 
+  color: rgb(63, 42, 82); 
   box-sizing: border-box;
 }
 
 .contact_section .section_title {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
-  color: rgb(235, 134, 78); 
+  color: rgb(63, 42, 82); 
   margin-bottom: 3rem;
   font-weight: 700;
 }
@@ -322,11 +322,11 @@
 .contact_form input,
 .contact_form textarea {
   width: 100%;
-  background-color:  rgb(238, 232, 221); 
-  border: 2px solid rgb(235, 134, 78); 
+  background-color:  rgb(190, 174, 219); 
+  border: 2px solid rgb(63, 42, 82); 
   border-radius: 12px; 
   padding: 1rem;
-  color: rgb(235, 134, 78); 
+  color: rgb(63, 42, 82); 
   font-size: 1.1rem;
   outline: none;
   font-family: 'Cormorant Garamond', serif;
@@ -335,8 +335,8 @@
 
 .contact_form input:focus,
 .contact_form textarea:focus {
-  border-color: rgb(238, 232, 221);
-  box-shadow: 0 0 10px rgba(242, 163, 136, 0.8); 
+  border-color: rgb(190, 174, 219);
+  box-shadow: 0 0 10px rgba(63, 42, 82, 0.8); 
 }
 
 .contact_form textarea {
@@ -346,8 +346,8 @@
 
 /* Contact Button: Filled with Deep Forest */
 .contact_btn {
-  background-color: rgb(235, 134, 78); 
-  color: rgb(238, 232, 221);
+  background-color: rgb(63, 42, 82); 
+  color: rgb(190, 174, 219);
   border: none;
   padding: 0.9rem 2.2rem;
   border-radius: 40px; 
@@ -358,13 +358,13 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-top: 1.5rem;
-  box-shadow: 0 5px 15px rgba(235, 134, 78 0.2);
+  box-shadow: 0 5px 15px rgba(63, 42, 82 0.2);
 }
 
 .contact_btn:hover {
-    background-color: rgb(238, 232, 221); 
-  color:  rgb(235, 134, 78); 
-  border: 3px solid rgb(235, 134, 78); 
+    background-color: rgb(190, 174, 219); 
+  color:  rgb(63, 42, 82); 
+  border: 3px solid rgb(63, 42, 82); 
 }
 
 /* Social Links */
@@ -376,7 +376,7 @@
 }
 
 .social_links a {
-  color: rgb(235, 134, 78); 
+  color: rgb(63, 42, 82); 
   text-decoration: none;
   font-weight: 600;
   font-family: 'Playfair Display', serif;
@@ -385,7 +385,7 @@
 }
 
 .social_links a:hover {
-  color: rgb(238, 232, 221); 
+  color: rgb(190, 174, 219); 
 }
 
 /* Responsive */

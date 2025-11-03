@@ -3,15 +3,23 @@
 
 
 .header {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  background-color: rgba(209, 195, 150); 
+  position: fixed; /* ✅ use fixed instead of sticky for reliability */
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 40px);
+  background-color: rgb(230, 239, 247);
   height: 65px;
   display: flex;
   justify-content: center;
+  align-items: center;
   z-index: 1000;
- 
+
+  /* Rounded border + lifted look */
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(63, 42, 82, 0.25);
+  border: 1px solid rgba(63, 42, 82, 0.15);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .header_container {
@@ -21,6 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
 }
 
 /* Navigation */
@@ -30,7 +39,7 @@
 }
 
 .nav_link {
-  color: rgb(235, 134, 78);
+  color: rgb(63, 42, 82);
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   font-size: 1.15rem; 
@@ -48,22 +57,22 @@
   transform: translateX(-50%); 
   width: 0%;
   height: 3px;
-  background-color: rgb(238, 232, 221);
+  background-color: rgb(190, 174, 219);
   transition: width 0.4s ease-out;
 }
 
 .nav_link:hover {
-  color: rgb(238, 232, 221);
+  color: rgb(190, 174, 219);
 }
 
 .nav_link:hover::after {
   width: 100%;
-  background-color: rgb(238, 232, 221); 
+  background-color: rgb(190, 174, 219); 
 }
 
 /* ---------------------------------Button (Pill-Shaped) ---------------------------------------------*/
 .resume_btn {
-  background-color:  rgb(235, 134, 78);
+  background-color:  rgb(63, 42, 82);
   color:  rgba(238, 232, 221); 
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
@@ -76,10 +85,10 @@
 }
 
 .resume_btn:hover {
-  background-color:  rgba(209, 195, 150); 
-  color: rgba(238, 232, 221); 
-  border: 3px solid rgb(235, 134, 78); 
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  background-color:  rgb(230, 239, 247); 
+  color: rgb(63, 42, 82); 
+  border: 3px solid rgb(63, 42, 82); 
+  box-shadow: 0 6px 15px rgba(63, 42, 82, 0.2);
 }
 
 /* Responsive */
