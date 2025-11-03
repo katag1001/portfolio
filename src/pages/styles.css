@@ -1,0 +1,316 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Dancing+Script&display=swap');
+
+
+.full_page {
+  width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* ----------------------------------HERO SECTION ----------------------------------------------*/
+.hero_section {
+  width: 100vw;
+  min-height: 100vh;
+  background: url('./src/assets/background.png') no-repeat center center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  color: #24284c;
+}
+
+.hero_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.hero_image,
+.hero_content {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.hero_content {
+  text-align: left; 
+  align-items: flex-start; 
+  padding-left: 2rem;
+}
+
+.hero_image img {
+  width: 80%;
+  max-width: 400px;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(36, 40, 76, 0.3);
+}
+
+.hero_content h1,
+.hero_content h2 {
+  margin-top: 0;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #24284c; 
+}
+
+.cta_btn {
+  background-color: #24284c; 
+  border: 2px solid #24284c; 
+  color: #fcf2dc; 
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  margin-top: 1.5rem;
+}
+
+.cta_btn:hover {
+  background-color: #fcf2dc; 
+  color: #24284c; 
+  border-color:  #24284c; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero_container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero_content {
+    padding-left: 0;
+    text-align: center;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .hero_image img {
+    width: 60%;
+  }
+}
+
+/* ------------------------PROJECTS SECTION ------------------------------------------*/
+.projects_section {
+  width: 100vw;
+  padding: 5rem 4rem;
+  background-color: #c1c89a; 
+  text-align: center;
+  box-sizing: border-box;
+  color: #24284c;
+  font-family: 'Playfair Display', serif; 
+}
+
+.projects_section .section_title {
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+}
+
+.projects_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.project_card {
+  background-color: #fcf2dc; 
+  border: 2px solid #24284c; 
+  border-radius: 8px;
+  padding: 2rem;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.project_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(36, 40, 76, 0.3);
+}
+
+.project_card h3 {
+  font-family: 'Playfair Display', serif; 
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #24284c;
+}
+
+.project_card p {
+  font-family: 'Playfair Display', serif;
+  color: #24284c;
+  margin-bottom: 1.5rem;
+}
+
+/* Skills within each project */
+.project_card .skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.project_card .skills span {
+  border: 2px solid #24284c;
+  border-radius: 4px;
+  padding: 0.3rem 0.8rem;
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  background-color: #fcf2dc;
+  color: #24284c;
+  transition: all 0.3s ease;
+}
+
+.project_card .skills span:hover {
+  background-color: #24284c;
+  color: #fcf2dc;
+  cursor: default;
+}
+
+
+/* ------------------------------SKILLS SECTION -------------------------------------------------*/
+.skills_section {
+  width: 100vw;
+  padding: 5rem 4rem;
+  text-align: center;
+  background-color: #fcf2dc; 
+  box-sizing: border-box;
+  color: #24284c; 
+  font-family: 'Playfair Display', serif;
+}
+
+.skills_section .section_title {
+  font-size: 2.2rem;
+  margin-bottom: 3rem;
+}
+
+.skills_grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.skills_grid .skill {
+  border: 2px solid #24284c;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  background-color: #fcf2dc;
+  color: #24284c;
+  transition: all 0.3s ease;
+}
+
+.skills_grid .skill:hover {
+  background-color: #24284c;
+  color: #fcf2dc;
+  cursor: default;
+}
+
+
+/* -------------------------------------------CONTACT SECTION -------------------------------*/
+.contact_section {
+  width: 100vw;
+  padding: 5rem 2rem;
+  background-color: #c1c89a; 
+  text-align: center;
+  color: #24284c; 
+  box-sizing: border-box;
+}
+
+.contact_section .section_title {
+  font-family:  'Playfair Display', serif;
+  font-size: 2.2rem;
+  color: #24284c; 
+  margin-bottom: 2.5rem;
+}
+
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto 3rem auto;
+}
+
+.contact_form input,
+.contact_form textarea {
+  width: 100%;
+  background-color: rgba(193, 200, 154, 0.6);
+  border: 1px solid #24284c;
+  border-radius: 4px;
+  padding: 0.8rem;
+  color: #24284c; 
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact_form input:focus,
+.contact_form textarea:focus {
+  border-color: #24284c;
+  box-shadow: 0 0 8px rgba(36, 40, 76, 0.5);
+}
+
+.contact_form textarea {
+  height: 120px;
+  resize: none;
+}
+
+.contact_btn {
+  background-color: #24284c;
+  color: #fcf2dc;
+  border: none;
+  padding: 0.8rem 1.4rem;
+  border-radius: 4px;
+  font-family:  'Playfair Display', serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact_btn:hover {
+  background-color: #fcf2dc; 
+  color: #24284c;
+}
+
+/* Social Links */
+.social_links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.social_links a {
+  color: #24284c; /* Updated text color */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.social_links a:hover {
+  color: #fcf2dc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact_section {
+    padding: 3rem 1.5rem;
+  }
+
+  .contact_form {
+    width: 100%;
+  }
+}

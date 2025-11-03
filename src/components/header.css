@@ -1,0 +1,88 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Dancing+Script&display=swap');
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #fcf2dc; 
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+
+}
+
+.header_container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Navigation */
+.header_nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav_link {
+  color: #24284c; 
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav_link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #24284c;
+  transition: width 0.3s ease;
+}
+
+.nav_link:hover {
+  color: #24284c;
+}
+
+.nav_link:hover::after {
+  width: 100%;
+}
+
+/* ---------------------------------Resume Button ---------------------------------------------*/
+.resume_btn {
+  background-color: #24284c; 
+  border: 2px solid #24284c; 
+  color: #fcf2dc; 
+   font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  padding: 0.5rem 1.2rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.resume_btn:hover {
+  background-color: #fcf2dc; 
+  color: #24284c; 
+  border-color:  #24284c; 
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header_container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .header_nav {
+    gap: 1rem;
+  }
+}
