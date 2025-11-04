@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import './styles.css';
+import Wearable from '../assets/wearable.png';
+import Orchestra from '../assets/orchestra.png';
 
 
 const Home = () => {
@@ -28,43 +30,54 @@ const Home = () => {
 <section className="projects_section">
   <h2 className="section_title">Featured Projects</h2>
   <div className="projects_grid">
-    <div className="project_card">
-      <img src="/images/project1.jpg" alt="Project 1" />
-      <h3>Portfolio Website</h3>
-      <p>Modern, responsive portfolio built with React and CSS animations.</p>
+    <a
+      href="https://wearable-psi.vercel.app/clothes"
+      className="project_card"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img src={Wearable} alt="Wearable" />
+      <h3>Wearable</h3>
+      <p>Wardrobe pairing app.</p>
       <div className="skills">
         <span>React</span>
         <span>CSS</span>
-        <span>UI/UX</span>
-      </div>
-    </div>
-
-    <div className="project_card">
-      <img src="/images/project2.jpg" alt="Project 2" />
-      <h3>E-Commerce App</h3>
-      <p>Full-stack web app with secure payments and user authentication.</p>
-      <div className="skills">
         <span>Node.js</span>
         <span>MongoDB</span>
-        <span>Stripe</span>
       </div>
-    </div>
+    </a>
+
+    <a
+      href="https://sta-rehearsal-orchestra.vercel.app/"
+      className="project_card"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img src={Orchestra} alt="St Albans Evening Rehearsal Orchestra" />
+      <h3>St Albans Evening Rehearsal Orchestra</h3>
+      <p>Local orchestra website</p>
+      <div className="skills">
+        <span>React</span>
+        <span>CSS</span>
+      </div>
+    </a>
+
   </div>
 </section>
 
 
 {/* Skills Section */}
+
 <section className="skills_section">
   <h2 className="section_title">Skills & Technologies</h2>
   <div className="skills_grid">
-    {['JavaScript', 'React', 'Node.js', 'Python', 'CSS', 'AWS'].map((skill) => (
+    {['JavaScript', 'React', 'React Native', 'Node.js',  'CSS', 'SQL'].map((skill) => (
       <span key={skill} className="skill">{skill}</span>
     ))}
   </div>
 </section>
 
-
-      {/* Contact Section */}
+  {/* Contact Section -TBD
       <section className="contact_section">
         <h2 className="section_title">Get In Touch</h2>
         <form className="contact_form">
@@ -77,8 +90,11 @@ const Home = () => {
           <a href="https://github.com/katag1001" target="_blank" rel="noopener noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/in/katarina-grantham-1b54a45b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-      </section>
+      </section>*/}
+
+
     </div>
+
   );
 };
 

@@ -1,81 +1,57 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import Wearable from '../assets/wearable.png';
+import Orchestra from '../assets/orchestra.png';
 import './styles.css';
 import './projects.css';
-import KatyImg from '../assets/me.jpg'; 
-
 
 const Projects = () => {
   return (
     <div className="full_page">
       <Header />
 
+      <section className="projects_page">
+        <div className="projects_grid">
 
-<section className="projects_page">
-  <div className="projects_grid">
-    <div className="project_card">
-      <img src="/images/project1.jpg" alt="Project 1" />
-      <h3>Portfolio Website</h3>
-      <p>Modern, responsive portfolio built with React and CSS animations.</p>
-      <div className="skills">
-        <span>React</span>
-        <span>CSS</span>
-        <span>UI/UX</span>
-      </div>
-    </div>
+          {/* Wearable Project */}
+          <a
+            href="https://wearable-psi.vercel.app/clothes"
+            className="project_card"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={Wearable} alt="Wearable" />
+            <h3>Wearable</h3>
+             <p>"Wearable is an intelligent wardrobe assistant web app that pairs combinations of your clothes and suggests the best outfit selection for the day according to the weather and your style preferences.</p>
+            <div className="skills">
+              <span>React</span>
+              <span>CSS</span>
+              <span>Node.js</span>
+              <span>MongoDB</span>
+            </div>
+          </a>
 
-    <div className="project_card">
-      <img src="/images/project2.jpg" alt="Project 2" />
-      <h3>E-Commerce App</h3>
-      <p>Full-stack web app with secure payments and user authentication.</p>
-      <div className="skills">
-        <span>Node.js</span>
-        <span>MongoDB</span>
-        <span>Stripe</span>
-      </div>
-    </div>
+          {/* Orchestra Project */}
+          <a
+            href="https://sta-rehearsal-orchestra.vercel.app/"
+            className="project_card"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src={Orchestra} alt="St Albans Evening Rehearsal Orchestra" />
+            <h3>St Albans Evening Rehearsal Orchestra</h3>
+            <p>The St Albans Evening Rehearsal Orchestra site is a website that shows the orchestra’s schedule, rehearsal dates, and photos, making it easy for members and visitors to see what’s happening.</p>
+            <div className="skills">
+              <span>React</span>
+              <span>CSS</span>
+            </div>
+          </a>
 
-    <div className="project_card">
-      <img src="/images/project2.jpg" alt="Project 2" />
-      <h3>E-Commerce App</h3>
-      <p>Full-stack web app with secure payments and user authentication.</p>
-      <div className="skills">
-        <span>Node.js</span>
-        <span>MongoDB</span>
-        <span>Stripe</span>
-      </div>
-    </div>
-
-    <div className="project_card">
-      <img src="/images/project2.jpg" alt="Project 2" />
-      <h3>E-Commerce App</h3>
-      <p>Full-stack web app with secure payments and user authentication.</p>
-      <div className="skills">
-        <span>Node.js</span>
-        <span>MongoDB</span>
-        <span>Stripe</span>
-      </div>
-    </div>
-
-    <div className="project_card">
-      <img src="/images/project2.jpg" alt="Project 2" />
-      <h3>E-Commerce App</h3>
-      <p>Full-stack web app with secure payments and user authentication.</p>
-      <div className="skills">
-        <span>Node.js</span>
-        <span>MongoDB</span>
-        <span>Stripe</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-      
+        </div>
+      </section>
     </div>
   );
 };
 
 export default Projects;
-
