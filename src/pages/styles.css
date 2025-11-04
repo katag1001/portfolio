@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Homemade+Apple&display=swap');
 
+
 /* GLOBAL RESET TO REMOVE DEFAULT BROWSER MARGINS AND PADDING */
 * {
   box-sizing: border-box;
@@ -24,10 +25,9 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Cormorant Garamond', serif;
-  /* NEW: Removed patterned background for a cleaner, flat look */
-  background-color: var(--color-light-background); /* NEW */
+  background-color: var(--color-light-background); 
   background-size: 40px 40px; 
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--color-deep-berry);
 }
 
 /* ----------------------------------main SECTION ----------------------------------------------*/

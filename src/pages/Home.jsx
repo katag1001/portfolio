@@ -38,7 +38,6 @@ const Home = () => {
     >
       <img src={Wearable} alt="Wearable" />
       <h3>Wearable</h3>
-      <p>Wardrobe pairing app.</p>
       <div className="skills">
         <span>React</span>
         <span>CSS</span>
@@ -55,7 +54,6 @@ const Home = () => {
     >
       <img src={Orchestra} alt="St Albans Evening Rehearsal Orchestra" />
       <h3>St Albans Evening Rehearsal Orchestra</h3>
-      <p>Local orchestra website</p>
       <div className="skills">
         <span>React</span>
         <span>CSS</span>
