@@ -14,14 +14,16 @@ function Header() {
         </nav>
 
         <div className="header_cta">
-          <a 
-            href="/resume.pdf" 
-            className="resume_btn" 
-            target="_blank" 
-            rel="noopener noreferrer"
-          >
-            Resume
-          </a>
+  <a 
+    href="/Katarina_Grantham_CV.pdf" 
+    className="resume_btn" 
+    download="Katarina_Grantham_CV.pdf" 
+    rel="noopener noreferrer"
+  >
+    Resume
+  </a>
+
+
 
           <a
             href="https://github.com/katag1001"
