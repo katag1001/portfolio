@@ -1,0 +1,13 @@
+.projects_page{
+  position: relative;
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  margin: 100px auto 80px auto;
+  padding: 1rem 4rem;
+  text-align: center;
+  box-sizing: border-box;
+  color: rgb(126, 53, 80);
+  font-family: 'Playfair Display', serif;
+  z-index: 10;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}

@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import './styles.css';
-import KatyImg from '../assets/me.jpg'; 
 
 
 const Home = () => {
@@ -10,13 +9,11 @@ const Home = () => {
     <div className="full_page">
       <Header />
 
-{/* Hero Section */}
-<section className="hero_section">
-  <div className="hero_container">
-    <div className="hero_image">      
-      <img src={KatyImg}/>
-    </div>
-    <div className="hero_content">
+{/* main Section */}
+<section className="main_section">
+  <div className="main_container">
+    
+    <div className="main_content">
       <h1>Hi, I'm Katy.</h1>
       <h2>I'm a Full Stack Developer.</h2>
       <Link to="/projects" className="cta_btn">View My Work</Link>
@@ -78,7 +75,7 @@ const Home = () => {
         </form>
         <div className="social_links">
           <a href="https://github.com/katag1001" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/katarina-grantham-1b54a45b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
       </section>
     </div>

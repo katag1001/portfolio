@@ -1,0 +1,55 @@
+.about_page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2rem;
+  background-color: var(--color-light-background);
+  color: var(--color-deep-berry);
+  font-family: 'Cormorant Garamond', serif;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.about_content {
+  max-width: 700px; /* keeps text centered and readable */
+}
+
+.about_title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: var(--color-deep-berry);
+  margin-bottom: 1rem;
+}
+
+.about_subtitle {
+  font-family: 'Homemade Apple', cursive;
+  font-weight: 400;
+  font-size: 2rem;
+  color: var(--color-deep-berry);
+  margin-bottom: 1.5rem;
+}
+
+.about_description {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  color: var(--color-deep-berry);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about_title {
+    font-size: 2.8rem;
+  }
+
+  .about_subtitle {
+    font-size: 1.6rem;
+  }
+
+  .about_description {
+    font-size: 1.1rem;
+  }
+}

@@ -1,14 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Homemade+Apple&display=swap');
 
+/* GLOBAL RESET TO REMOVE DEFAULT BROWSER MARGINS AND PADDING */
+* {
+  box-sizing: border-box;
+}
 
+html, body {
+  margin: 0;
+  padding: 0;
+}
 
+/* Define new palette for a sophisticated, muted mauve/taupe aesthetic */
+:root {
+  --color-light-background: rgb(245, 237, 240); /* NEW: Very light taupe/pink */
+  --color-mauve-section: rgb(212, 188, 198); /* NEW: Muted Dusty Rose */
+  --color-deep-berry: rgb(74, 32, 48); /* NEW: Deep Maroon/Brown for text and accents */
+  --color-off-white: rgb(255, 255, 255); /* NEW: Clean White for cards */
+}
+
+.full_page {
+  width: 100vw;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: 'Cormorant Garamond', serif;
+  /* NEW: Removed patterned background for a cleaner, flat look */
+  background-color: var(--color-light-background); /* NEW */
+  background-size: 40px 40px; 
+  color: var(--color-deep-berry); /* NEW */
+}
+
+/* ----------------------------------HEADER SECTION ----------------------------------------------*/
 .header {
-  position: fixed; /* ✅ use fixed instead of sticky for reliability */
+  position: fixed; 
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% - 40px);
-  background-color: rgba(253, 254, 255);
+  background-color: var(--color-light-background); /* Match theme */
   height: 65px;
   display: flex;
   justify-content: center;
@@ -17,8 +46,8 @@
 
   /* Rounded border + lifted look */
   border-radius: 15px;
-  box-shadow: 0 6px 18px rgba(231, 144, 121, 0.25);
-  border: 1px solid rgba(231, 144, 121, 0.15);
+  box-shadow: 0 6px 18px rgba(74, 32, 48, 0.25); /* Use deep berry color for shadow */
+  border: 1px solid rgba(74, 32, 48, 0.15); /* Use deep berry color for border */
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
@@ -39,7 +68,7 @@
 }
 
 .nav_link {
-  color: rgb(231, 144, 121);
+  color: var(--color-deep-berry); /* Match theme */
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   font-size: 1.15rem; 
@@ -57,23 +86,30 @@
   transform: translateX(-50%); 
   width: 0%;
   height: 3px;
-  background-color: rgb(255, 248, 245);
+  background-color: var(--color-off-white); /* Match theme */
   transition: width 0.4s ease-out;
 }
 
 .nav_link:hover {
-  color: rgb(248, 234, 231);
+  color: var(--color-off-white); /* Match theme */
 }
 
 .nav_link:hover::after {
   width: 100%;
-  background-color: rgb(255, 248, 245); 
+  background-color: var(--color-deep-berry); /* Change hover underline to deep berry */
 }
 
-/* ---------------------------------Button (Pill-Shaped) ---------------------------------------------*/
+/* ---------------------------------Buttons---------------------------------------------*/
+.header_cta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.8rem; /* spacing between buttons */
+}
+
 .resume_btn {
-  background-color:  rgb(231, 144, 121);
-  color:  rgb(255, 248, 245); 
+  background-color: var(--color-deep-berry); /* Match theme */
+  color: var(--color-off-white); /* Match theme */
   font-family: 'Cormorant Garamond', serif;
   font-weight: 600;
   padding: 0.7rem 1.8rem; 
@@ -82,20 +118,146 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1.5px; 
+  border: 3px solid transparent; /* Added transparent border for consistent sizing on hover */
 }
 
 .resume_btn:hover {
-  background-color:  rgba(253, 254, 255); 
-  color: rgb(231, 144, 121); 
-  border: 3px solid rgb(231, 144, 121); 
-  box-shadow: 0 6px 15px rgba(231, 144, 121, 0.2);
+  background-color: var(--color-light-background); /* Match theme */
+  color: var(--color-deep-berry); /* Match theme */
+  border: 3px solid var(--color-deep-berry); /* Match theme */
+  box-shadow: 0 6px 15px rgba(74, 32, 48, 0.2); /* Use deep berry color for shadow */
 }
 
-/* Responsive */
+.icon_btn {
+  background-color: var(--color-deep-berry); /* Match theme */
+  color: var(--color-off-white); /* Match theme */
+  font-size: 1.4rem;
+  padding: 0.7rem;
+  border-radius: 50%;
+  margin-left: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 3px solid transparent; /* Added transparent border for consistent sizing on hover */
+}
+
+.icon_btn:hover {
+  background-color: var(--color-light-background); /* Match theme */
+  color: var(--color-deep-berry); /* Match theme */
+  border: 3px solid var(--color-deep-berry); /* Match theme */
+  box-shadow: 0 6px 15px rgba(74, 32, 48, 0.2); /* Use deep berry color for shadow */
+}
+
+/* ----------------------------------main SECTION ----------------------------------------------*/
+.main_section {
+  width: 100%;
+  min-height: 90vh; 
+  height: auto;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 2rem;
+  box-sizing: border-box;
+  color: var(--color-deep-berry); /* NEW */
+}
+
+.main_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 65px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.main_image,
+.main_content {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.main_content {
+  text-align: left; 
+  align-items: flex-start; 
+}
+
+.main_image img {
+  margin-top: 30px;
+  width: 75%;
+  max-width: 360px;
+  /* NEW: Simplified border radius for cleaner, editorial look */
+  border-radius: 15px; 
+  box-shadow: 0 10px 30px rgba(74, 32, 48, 0.1); /* NEW: Softer shadow */
+  border: 3px solid var(--color-deep-berry); /* NEW */
+}
+
+.main_content h1 {
+  margin-top: 0;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--color-deep-berry); /* NEW */
+  font-size: 4.5rem;
+  line-height: 1.1;
+}
+
+.main_content h2 { 
+  margin-top: 0;
+  font-family: 'Homemade Apple', cursive; 
+  font-weight: 400;
+  color: var(--color-deep-berry); /* NEW */
+  font-size: 3rem; 
+  margin-bottom: 1.5rem;
+}
+
+.main_content p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+/* Redesigned CTA Button: Outlined/Ghost style */
+.cta_btn {
+  background-color: transparent; 
+  border: 2px solid var(--color-deep-berry); /* NEW: Thinner border */
+  color: var(--color-deep-berry); /* NEW */
+  font-family: 'Playfair Display', serif;
+  font-weight: 700; /* NEW: Slightly lighter weight */
+  padding: 0.9rem 2.2rem;
+  border-radius: 8px; /* NEW: Sharper corners */
+  text-decoration: none;
+  transition: all 0.4s ease;
+  display: inline-block;
+  margin-top: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px; /* NEW: Less extreme letter spacing */
+}
+
+.cta_btn:hover {
+  background-color: var(--color-deep-berry); /* NEW */
+  color: var(--color-off-white); /* NEW: Pure white */
+  border-color: var(--color-light-background); /* NEW: Light hover border */
+  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.2); /* NEW: Lighter shadow */
+  transform: translateY(-1px); /* NEW: Subtler lift */
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
+  /* Header Responsive Changes */
+  .header {
+    height: 60px; /* Slightly shorter on mobile */
+    top: 5px;
+    width: calc(100% - 20px); /* Use less margin */
+  }
+
   .header_container {
-    flex-direction: column;
-    gap: 1.5rem;
+    padding: 0 1rem;
   }
 
   .header_nav {
@@ -104,5 +266,338 @@
 
   .nav_link {
     font-size: 1rem;
+  }
+  
+  /* IMPROVED RESPONSIVE: Hide the resume button on small screens to prioritize space */
+  .header_cta .resume_btn {
+    display: none;
+  }
+  
+  .header_cta .icon_btn {
+    margin-left: 0; 
+  }
+
+  /* Main Section Responsive Changes */
+  .main_container {
+    margin-top: 0; 
+    flex-direction: column;
+    text-align: center;
+    min-height: auto;
+  }
+
+  .main_content {
+    padding-left: 0;
+    text-align: center;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .main_image img {
+    width: 70%;
+  }
+
+  .main_content h1 {
+    font-size: 3.5rem;
+  }
+
+  .main_content h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Extra small screen adjustment for header */
+@media (max-width: 480px) {
+  .header_nav {
+    /* Hide the navigation links entirely to save space, 
+       leaving only the title (if present) and the icon button */
+    display: none; 
+  }
+  .header_container {
+    justify-content: flex-end; /* Push remaining icon button to the right */
+  }
+}
+
+
+/* ------------------------PROJECTS SECTION ------------------------------------------*/
+.projects_section {
+  position: relative;
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  margin: 70px auto 80px auto;
+  padding: 3rem 4rem; /* NEW: Increased top/bottom padding for separation */
+  background-color: var(--color-mauve-section); /* NEW: Solid Mauve */
+  border-radius: 10px; /* NEW: Simpler border radius */
+  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.1); /* NEW: Softer shadow */
+  border: none; /* NEW: Removed border for cleaner look */
+  text-align: center;
+  box-sizing: border-box;
+  color: var(--color-deep-berry); /* NEW */
+  font-family: 'Playfair Display', serif;
+  z-index: 10;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.projects_section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(74, 32, 48, 0.15); /* NEW: Softened hover shadow */
+}
+
+.projects_section .section_title {
+  font-size: 3rem; 
+  margin-bottom: 3rem; /* NEW: Reduced margin */
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: var(--color-deep-berry); /* NEW */
+  position: relative;
+}
+
+.projects_section .section_title::after {
+  content: none; /* NEW: Removed the decorative underline for a cleaner, editorial look */
+}
+
+.projects_grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.project_card {
+  background-color: var(--color-off-white); /* NEW: Pure white background */
+  border: none; /* NEW: Removed thick border */
+  border-radius: 10px; /* NEW: Simpler corners */
+  padding: 2.5rem 1.5rem; /* NEW: Adjusted padding */
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(74, 32, 48, 0.08); /* NEW: Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* NEW: Simplified transition */
+  text-align: center;
+}
+
+.project_card:hover {
+  transform: translateY(-4px); /* NEW: Simpler vertical lift */
+  box-shadow: 0 8px 20px rgba(74, 32, 48, 0.15); /* NEW: Softened hover shadow */
+  /* Removed rotation for cleaner structure */
+}
+
+.project_card h3 {
+  font-family: 'Homemade Apple', cursive;
+  font-weight: 400;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-deep-berry); /* NEW */
+}
+
+.project_card p {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--color-deep-berry); /* NEW */
+  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.project_card .skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.project_card .skills span {
+  border: none;
+  border-radius: 30px;
+  padding: 0.4rem 1rem; /* NEW: Reduced padding */
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; /* NEW: Lighter font weight for tags */
+  background-color: var(--color-mauve-section); /* NEW: Mauve background */
+  color: var(--color-deep-berry); /* NEW: Deep berry text */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-size: 1rem;
+  text-transform: capitalize;
+}
+
+.project_card .skills span:hover {
+  background-color: var(--color-deep-berry); /* NEW: Dark background on hover */
+  color: var(--color-off-white); /* NEW: White text on hover */
+  border: none; /* Removed border */
+}
+
+
+
+/* ------------------------------SKILLS SECTION -------------------------------------------------*/
+.skills_section {
+  position: relative;
+  width: calc(100% - 40px);
+  max-width: 1200px;
+  margin: 70px auto;
+  padding: 3rem 4rem;
+  text-align: center;
+  background-color: var(--color-mauve-section); /* NEW: Solid Mauve */
+  border-radius: 10px; /* NEW: Simpler border radius */
+  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.1); /* NEW: Softer shadow */
+  border: none; /* NEW: Removed border */
+  box-sizing: border-box;
+  color: var(--color-deep-berry); /* NEW */
+  font-family: 'Playfair Display', serif;
+  z-index: 10;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Optional hover lift effect */
+.skills_section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(74, 32, 48, 0.15); /* NEW: Softened hover shadow */
+}
+
+.skills_section .section_title {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  color: var(--color-deep-berry); /* NEW */
+  font-weight: 700;
+  position: relative;
+}
+
+.skills_section .section_title::after {
+  content: none; /* NEW: Removed the decorative underline */
+}
+
+.skills_grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skills_grid .skill {
+  border-radius: 40px;
+  padding: 0.8rem 1.8rem;
+  font-weight: 600;
+  background-color: var(--color-deep-berry); /* NEW: Deep Berry fill */
+  color: var(--color-off-white); /* NEW: Pure white text */
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(74, 32, 48, 0.2);
+}
+
+.skills_grid .skill:hover {
+  background-color: var(--color-off-white); /* NEW: White background on hover */
+  color: var(--color-deep-berry); /* NEW: Deep berry text on hover */
+  border: 3px solid var(--color-deep-berry); /* NEW */
+  box-shadow: 0 6px 15px rgba(74, 32, 48, 0.15); /* NEW: Softened hover shadow */
+}
+
+
+
+/* -------------------------------------------CONTACT SECTION -------------------------------*/
+.contact_section {
+  background-color: var(--color-mauve-section); /* NEW: Mauve background */
+  width: 100%;
+  padding: 4rem 2rem 5rem 2rem; /* NEW: Increased padding */
+  text-align: center;
+  color: var(--color-deep-berry); /* NEW */
+  box-sizing: border-box;
+}
+
+.contact_section .section_title {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  color: var(--color-deep-berry); /* NEW */
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  max-width: 550px;
+  margin: 0 auto 3.5rem auto;
+}
+
+.contact_form input,
+.contact_form textarea {
+  width: 100%;
+  background-color: var(--color-off-white); /* NEW: Pure white input background */
+  border: 1px solid var(--color-mauve-section); /* NEW: Lighter, subtle border */
+  border-radius: 8px; /* NEW: Simpler corners */
+  padding: 1rem;
+  color: var(--color-deep-berry); /* NEW */
+  font-size: 1.1rem;
+  outline: none;
+  font-family: 'Cormorant Garamond', serif;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact_form input:focus,
+.contact_form textarea:focus {
+  border-color: var(--color-deep-berry); /* NEW: Deep berry focus */
+  box-shadow: 0 0 0 2px rgba(74, 32, 48, 0.2); /* NEW: Clean focus ring */
+}
+
+.contact_form textarea {
+  height: 150px;
+  resize: vertical; 
+}
+
+/* Contact Button: Filled with Deep Forest */
+.contact_btn {
+  background-color: var(--color-deep-berry); /* NEW: Deep berry fill */
+  color: var(--color-off-white); /* NEW: Pure white text */
+  border: none;
+  padding: 0.9rem 2.2rem;
+  border-radius: 8px; /* NEW: Sharper corners */
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px; /* NEW: Less harsh letter spacing */
+  margin-top: 1.5rem;
+  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.2);
+}
+
+.contact_btn:hover {
+  background-color: var(--color-off-white); /* NEW: White background on hover */
+  color: var(--color-deep-berry); /* NEW: Deep berry text on hover */
+  border: 2px solid var(--color-deep-berry); /* NEW: Outlined style on hover */
+}
+
+/* Social Links */
+.social_links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.social_links a {
+  color: var(--color-deep-berry); /* NEW */
+  text-decoration: none;
+  font-weight: 600;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.social_links a:hover {
+  color: var(--color-off-white); /* NEW: White text on the mauve background */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  /* ... (main section responsive rules are here) ... */
+
+  .contact_section {
+    padding: 3rem 1.5rem;
+  }
+
+  .contact_form {
+    width: 100%;
   }
 }
