@@ -28,14 +28,7 @@ function Header() {
 
         {/* CTA + Socials + Menu toggle */}
         <div className="header_cta">
-          <a
-            href="/Katarina_Grantham_CV.pdf"
-            className="resume_btn"
-            download="Katarina_Grantham_CV.pdf"
-            rel="noopener noreferrer"
-          >
-            Resume
-          </a>
+         
 
           <a
             href="https://github.com/katag1001"
@@ -55,6 +48,15 @@ function Header() {
             aria-label="LinkedIn"
           >
             <FaLinkedin />
+          </a>
+
+           <a
+            href="/Katarina_Grantham_CV.pdf"
+            className="resume_btn"
+            download="Katarina_Grantham_CV.pdf"
+            rel="noopener noreferrer"
+          >
+            Resume
           </a>
 
           {/* 3-dot (hamburger) menu */}
