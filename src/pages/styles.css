@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Homemade+Apple&display=swap');
 
 
-
 * {
   box-sizing: border-box;
 }
@@ -166,8 +165,9 @@ html, body {
   position: relative;
 }
 
-.projects_section .section_title::after {
+.projects_section .section_title ::after {
   content: none;
+  text-decoration: none;
 }
 
 .projects_grid {
@@ -197,6 +197,7 @@ html, body {
 
 .project_card h3 {
   font-family: 'Homemade Apple', cursive;
+  text-decoration: none;
   font-weight: 400;
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
@@ -254,6 +255,20 @@ html, body {
 }
 
 
+.projects_section a {
+  text-decoration: none;  
+  color: inherit;   
+  transition: none;  
+}
+
+.projects_section a:hover,
+.projects_section a:focus,
+.projects_section a:active {
+  text-decoration: none;  
+  color: inherit; 
+}
+
+
 
 
 /* ------------------------------SKILLS SECTION -------------------------------------------------*/
@@ -289,8 +304,9 @@ html, body {
   position: relative;
 }
 
-.skills_section .section_title::after {
+.skills_section .section_title h3::after {
   content: none; 
+  text-decoration: none;
 }
 
 .skills_grid {
