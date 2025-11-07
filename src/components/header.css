@@ -11,7 +11,7 @@ html, body {
 
 :root {
   --background-color: rgb(245, 237, 240);
-  --alternate-color: rgba(239, 209, 209, 0.9);
+  --alternate-color: rgba(239, 209, 209, 0.95);
   --dark-color:  rgb(48, 23, 18); 
   --light-color: rgb(255, 255, 255);
 }

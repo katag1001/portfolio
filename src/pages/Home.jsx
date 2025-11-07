@@ -29,15 +29,17 @@ const Home = () => {
 {/* Projects Section */}
 <section className="projects_section">
   <h2 className="section_title">Featured Projects</h2>
+
   <div className="projects_grid">
+
     <a
       href="https://wearable-psi.vercel.app/clothes"
       className="project_card"
       target="_blank"
       rel="noopener noreferrer"
-    >
+    ><h3>Wearable</h3>
       <img src={Wearable} alt="Wearable" />
-      <h3>Wearable</h3>
+      
       <div className="skills">
         <span>React</span>
         <span>CSS</span>
@@ -45,6 +47,7 @@ const Home = () => {
         <span>MongoDB</span>
       </div>
     </a>
+    
 
     <a
       href="https://sta-rehearsal-orchestra.vercel.app/"
@@ -52,8 +55,9 @@ const Home = () => {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <img src={Orchestra} alt="St Albans Evening Rehearsal Orchestra" />
       <h3>St Albans Evening Rehearsal Orchestra</h3>
+      <img src={Orchestra} alt="St Albans Evening Rehearsal Orchestra" />
+      
       <div className="skills">
         <span>React</span>
         <span>CSS</span>

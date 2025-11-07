@@ -14,7 +14,7 @@ html, body {
 
 :root {
   --background-color: rgb(245, 237, 240); 
-  --alternate-color: rgba(239, 209, 209, 0.8);
+  --alternate-color: rgba(239, 209, 209, 0.95);
   --dark-color: rgb(48, 23, 18);  
   --light-color: rgba(237, 237, 233, 0.9)
 }
@@ -137,12 +137,12 @@ html, body {
   position: relative;
   width: calc(100% - 40px);
   max-width: 1200px;
-  margin: 70px auto 80px auto;
+  margin: 0px auto 80px auto;
   padding: 3rem 4rem; 
-  background-color: var(--light-color);
+  /*background-color: var(--light-color);
 
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.1);
+  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.1);*/
   border: none; 
   text-align: center;
   box-sizing: border-box;
@@ -152,10 +152,10 @@ html, body {
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-.projects_section:hover {
+/*.projects_section:hover {
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(74, 32, 48, 0.15);
-}
+}*/
 
 .projects_section .section_title {
   font-size: 3rem; 
@@ -224,8 +224,8 @@ html, body {
   padding: 0.4rem 1rem;
   font-family: 'Cormorant Garamond', serif;
   font-weight: 400;
-  background-color: var(--alternate-color);
-  color: var(--dark-color);
+  background-color: var(--dark-color);
+  color: var(--light-color);
   transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 1rem;
   text-transform: capitalize;
@@ -261,7 +261,7 @@ html, body {
   position: relative;
   width: calc(100% - 40px);
   max-width: 1200px; 
-  margin: 70px auto;
+  margin: 70px auto 140px auto;
   padding: 3rem 4rem;
   text-align: center;
   background-color: var(--alternate-color); 
@@ -315,15 +315,22 @@ html, body {
 }
 
 .skills_grid .skill:hover {
-  background-color: var(--light-color);
-  color: var(--dark-color); 
-  border: 3px solid var(--dark-color);
+
   box-shadow: 0 6px 15px rgba(74, 32, 48, 0.15); 
+  background-color: var(--dark-color); 
+  color: var(--light-color);
+  border: none; 
+
+}
+
+.projects_section a:visited {
+  color: var(--dark-color); 
 }
 
 
 
-/* -------------------------------------------CONTACT SECTION -------------------------------*/
+
+/* -------------------------------------------CONTACT SECTION -------------------------------
 .contact_section {
   background-color: var(--alternate-color); 
   width: 100%;
@@ -420,7 +427,7 @@ html, body {
   color: var(--light-color);
 }
 
-
+*/
 
 /**-------------------------MOBILE--------------------------------------------*/
 
