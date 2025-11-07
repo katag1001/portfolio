@@ -23,7 +23,7 @@ const Projects = () => {
           >
             <img src={Wearable} alt="Wearable" />
             <h3>Wearable</h3>
-             <p>"Wearable is an intelligent wardrobe assistant web app that pairs combinations of your clothes and suggests the best outfit selection for the day according to the weather and your style preferences.</p>
+             <p>Wearable is an intelligent wardrobe assistant web app that pairs combinations of your clothes and suggests the best outfit selection for the day according to the weather and your style preferences.</p>
             <div className="skills">
               <span>React</span>
               <span>CSS</span>
