@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Homemade+Apple&display=swap');
 
 
-/* GLOBAL RESET TO REMOVE DEFAULT BROWSER MARGINS AND PADDING */
+
 * {
   box-sizing: border-box;
 }
@@ -13,10 +13,10 @@ html, body {
 
 
 :root {
-  --color-light-background: rgb(245, 237, 240); 
-  --color-mauve-section: rgb(212, 188, 198); 
-  --color-deep-berry: rgb(74, 32, 48); 
-  --color-off-white: rgb(255, 255, 255); 
+  --background-color: rgb(245, 237, 240); 
+  --alternate-color: rgb(212, 188, 198); 
+  --dark-color: rgb(74, 32, 48); 
+  --light-color: rgb(255, 255, 255); 
 }
 
 .full_page {
@@ -25,12 +25,12 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: 'Cormorant Garamond', serif;
-  background-color: var(--color-light-background); 
+  background-color: var(--background-color); 
   background-size: 40px 40px; 
-  color: var(--color-deep-berry);
+  color: var(--dark-color);
 }
 
-/* ----------------------------------main SECTION ----------------------------------------------*/
+/* ----------------------------------MAIN SECTION ----------------------------------------------*/
 .main_section {
   width: 100%;
   min-height: 90vh; 
@@ -41,7 +41,7 @@ html, body {
   justify-content: center;
   padding: 0rem 2rem;
   box-sizing: border-box;
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color); 
 }
 
 .main_container {
@@ -71,17 +71,16 @@ html, body {
   margin-top: 30px;
   width: 75%;
   max-width: 360px;
-  /* NEW: Simplified border radius for cleaner, editorial look */
   border-radius: 15px; 
-  box-shadow: 0 10px 30px rgba(74, 32, 48, 0.1); /* NEW: Softer shadow */
-  border: 3px solid var(--color-deep-berry); /* NEW */
+  box-shadow: 0 10px 30px rgba(74, 32, 48, 0.1);
+  border: 3px solid var(--dark-color);
 }
 
 .main_content h1 {
   margin-top: 0;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color); 
   font-size: 4.5rem;
   line-height: 1.1;
 }
@@ -90,7 +89,7 @@ html, body {
   margin-top: 0;
   font-family: 'Homemade Apple', cursive; 
   font-weight: 400;
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color);
   font-size: 3rem; 
   margin-bottom: 1.5rem;
 }
@@ -102,32 +101,30 @@ html, body {
   max-width: 500px;
 }
 
-/* Redesigned CTA Button: Outlined/Ghost style */
 .cta_btn {
   background-color: transparent; 
-  border: 2px solid var(--color-deep-berry); /* NEW: Thinner border */
-  color: var(--color-deep-berry); /* NEW */
+  border: 2px solid var(--dark-color);
+  color: var(--dark-color); 
   font-family: 'Playfair Display', serif;
-  font-weight: 700; /* NEW: Slightly lighter weight */
+  font-weight: 700; 
   padding: 0.9rem 2.2rem;
-  border-radius: 8px; /* NEW: Sharper corners */
+  border-radius: 8px; 
   text-decoration: none;
   transition: all 0.4s ease;
   display: inline-block;
   margin-top: 0.7rem;
   text-transform: uppercase;
-  letter-spacing: 2px; /* NEW: Less extreme letter spacing */
+  letter-spacing: 2px; 
 }
 
 .cta_btn:hover {
-  background-color: var(--color-deep-berry); /* NEW */
-  color: var(--color-off-white); /* NEW: Pure white */
-  border-color: var(--color-light-background); /* NEW: Light hover border */
-  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.2); /* NEW: Lighter shadow */
-  transform: translateY(-1px); /* NEW: Subtler lift */
+  background-color: var(--dark-color); 
+  color: var(--light-color);
+  border-color: var(--background-color);
+  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.2); 
+  transform: translateY(-1px);
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .main_container {
     margin-top: 0; 
@@ -162,14 +159,14 @@ html, body {
   width: calc(100% - 40px);
   max-width: 1200px;
   margin: 70px auto 80px auto;
-  padding: 3rem 4rem; /* NEW: Increased top/bottom padding for separation */
-  background-color: var(--color-mauve-section); /* NEW: Solid Mauve */
-  border-radius: 10px; /* NEW: Simpler border radius */
-  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.1); /* NEW: Softer shadow */
-  border: none; /* NEW: Removed border for cleaner look */
+  padding: 3rem 4rem; 
+  background-color: var(--alternate-color); 
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.1);
+  border: none; 
   text-align: center;
   box-sizing: border-box;
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color);
   font-family: 'Playfair Display', serif;
   z-index: 10;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -177,20 +174,20 @@ html, body {
 
 .projects_section:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(74, 32, 48, 0.15); /* NEW: Softened hover shadow */
+  box-shadow: 0 8px 24px rgba(74, 32, 48, 0.15);
 }
 
 .projects_section .section_title {
   font-size: 3rem; 
-  margin-bottom: 3rem; /* NEW: Reduced margin */
+  margin-bottom: 3rem;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color); 
   position: relative;
 }
 
 .projects_section .section_title::after {
-  content: none; /* NEW: Removed the decorative underline for a cleaner, editorial look */
+  content: none;
 }
 
 .projects_grid {
@@ -203,20 +200,19 @@ html, body {
 }
 
 .project_card {
-  background-color: var(--color-off-white); /* NEW: Pure white background */
-  border: none; /* NEW: Removed thick border */
-  border-radius: 10px; /* NEW: Simpler corners */
-  padding: 2.5rem 1.5rem; /* NEW: Adjusted padding */
+  background-color: var(--light-color); 
+  border: none; 
+  border-radius: 10px; 
+  padding: 2.5rem 1.5rem; 
   box-sizing: border-box;
-  box-shadow: 0 2px 10px rgba(74, 32, 48, 0.08); /* NEW: Subtle shadow for depth */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* NEW: Simplified transition */
+  box-shadow: 0 2px 10px rgba(74, 32, 48, 0.08); 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
   text-align: center;
 }
 
 .project_card:hover {
-  transform: translateY(-4px); /* NEW: Simpler vertical lift */
-  box-shadow: 0 8px 20px rgba(74, 32, 48, 0.15); /* NEW: Softened hover shadow */
-  /* Removed rotation for cleaner structure */
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(74, 32, 48, 0.15); 
 }
 
 .project_card h3 {
@@ -224,12 +220,12 @@ html, body {
   font-weight: 400;
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color); 
 }
 
 .project_card p {
   font-family: 'Cormorant Garamond', serif;
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color);
   margin-bottom: 2rem;
   font-size: 1.2rem;
   font-weight: 400;
@@ -245,19 +241,19 @@ html, body {
 .project_card .skills span {
   border: none;
   border-radius: 30px;
-  padding: 0.4rem 1rem; /* NEW: Reduced padding */
+  padding: 0.4rem 1rem;
   font-family: 'Cormorant Garamond', serif;
-  font-weight: 400; /* NEW: Lighter font weight for tags */
-  background-color: var(--color-mauve-section); /* NEW: Mauve background */
-  color: var(--color-deep-berry); /* NEW: Deep berry text */
+  font-weight: 400;
+  background-color: var(--alternate-color);
+  color: var(--dark-color);
   transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 1rem;
   text-transform: capitalize;
 }
 
 .project_card .skills span:hover {
-  background-color: var(--color-deep-berry); 
-  color: var(--color-off-white);
+  background-color: var(--dark-color); 
+  color: var(--light-color);
   border: none; 
 }
 
@@ -284,37 +280,37 @@ html, body {
 .skills_section {
   position: relative;
   width: calc(100% - 40px);
-  max-width: 1200px; /* EDITED: Changed from 1000px to 1200px to match .projects_section */
+  max-width: 1200px; 
   margin: 70px auto;
   padding: 3rem 4rem;
   text-align: center;
-  background-color: var(--color-mauve-section); /* NEW: Solid Mauve */
-  border-radius: 10px; /* NEW: Simpler border radius */
-  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.1); /* NEW: Softer shadow */
-  border: none; /* NEW: Removed border */
+  background-color: var(--alternate-color); 
+  border-radius: 10px; 
+  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.1);
+  border: none;
   box-sizing: border-box;
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color); 
   font-family: 'Playfair Display', serif;
   z-index: 10;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Optional hover lift effect */
+
 .skills_section:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(74, 32, 48, 0.15); /* NEW: Softened hover shadow */
+  box-shadow: 0 8px 24px rgba(74, 32, 48, 0.15);
 }
 
 .skills_section .section_title {
   font-size: 3rem;
   margin-bottom: 3rem;
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color);
   font-weight: 700;
   position: relative;
 }
 
 .skills_section .section_title::after {
-  content: none; /* NEW: Removed the decorative underline */
+  content: none; 
 }
 
 .skills_grid {
@@ -330,8 +326,8 @@ html, body {
   border-radius: 40px;
   padding: 0.8rem 1.8rem;
   font-weight: 600;
-  background-color: var(--color-deep-berry); /* NEW: Deep Berry fill */
-  color: var(--color-off-white); /* NEW: Pure white text */
+  background-color: var(--dark-color); 
+  color: var(--light-color); 
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.2rem;
   transition: all 0.3s ease;
@@ -339,28 +335,28 @@ html, body {
 }
 
 .skills_grid .skill:hover {
-  background-color: var(--color-off-white); /* NEW: White background on hover */
-  color: var(--color-deep-berry); /* NEW: Deep berry text on hover */
-  border: 3px solid var(--color-deep-berry); /* NEW */
-  box-shadow: 0 6px 15px rgba(74, 32, 48, 0.15); /* NEW: Softened hover shadow */
+  background-color: var(--light-color);
+  color: var(--dark-color); 
+  border: 3px solid var(--dark-color);
+  box-shadow: 0 6px 15px rgba(74, 32, 48, 0.15); 
 }
 
 
 
 /* -------------------------------------------CONTACT SECTION -------------------------------*/
 .contact_section {
-  background-color: var(--color-mauve-section); /* NEW: Mauve background */
+  background-color: var(--alternate-color); 
   width: 100%;
-  padding: 4rem 2rem 5rem 2rem; /* NEW: Increased padding */
+  padding: 4rem 2rem 5rem 2rem; 
   text-align: center;
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color); 
   box-sizing: border-box;
 }
 
 .contact_section .section_title {
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color); 
   margin-bottom: 3rem;
   font-weight: 700;
 }
@@ -378,11 +374,11 @@ html, body {
 .contact_form input,
 .contact_form textarea {
   width: 100%;
-  background-color: var(--color-off-white); /* NEW: Pure white input background */
-  border: 1px solid var(--color-mauve-section); /* NEW: Lighter, subtle border */
-  border-radius: 8px; /* NEW: Simpler corners */
+  background-color: var(--light-color); 
+  border: 1px solid var(--alternate-color); 
+  border-radius: 8px; 
   padding: 1rem;
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color);
   font-size: 1.1rem;
   outline: none;
   font-family: 'Cormorant Garamond', serif;
@@ -391,8 +387,8 @@ html, body {
 
 .contact_form input:focus,
 .contact_form textarea:focus {
-  border-color: var(--color-deep-berry); /* NEW: Deep berry focus */
-  box-shadow: 0 0 0 2px rgba(74, 32, 48, 0.2); /* NEW: Clean focus ring */
+  border-color: var(--dark-color);
+  box-shadow: 0 0 0 2px rgba(74, 32, 48, 0.2);
 }
 
 .contact_form textarea {
@@ -400,30 +396,30 @@ html, body {
   resize: vertical; 
 }
 
-/* Contact Button: Filled with Deep Forest */
+
 .contact_btn {
-  background-color: var(--color-deep-berry); /* NEW: Deep berry fill */
-  color: var(--color-off-white); /* NEW: Pure white text */
+  background-color: var(--dark-color);
+  color: var(--light-color);
   border: none;
   padding: 0.9rem 2.2rem;
-  border-radius: 8px; /* NEW: Sharper corners */
+  border-radius: 8px;
   font-family: 'Playfair Display', serif;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
   text-transform: uppercase;
-  letter-spacing: 1px; /* NEW: Less harsh letter spacing */
+  letter-spacing: 1px;
   margin-top: 1.5rem;
   box-shadow: 0 4px 12px rgba(74, 32, 48, 0.2);
 }
 
 .contact_btn:hover {
-  background-color: var(--color-off-white); /* NEW: White background on hover */
-  color: var(--color-deep-berry); /* NEW: Deep berry text on hover */
-  border: 2px solid var(--color-deep-berry); /* NEW: Outlined style on hover */
+  background-color: var(--light-color); 
+  color: var(--dark-color); 
+  border: 2px solid var(--dark-color); 
 }
 
-/* Social Links */
+
 .social_links {
   display: flex;
   justify-content: center;
@@ -432,7 +428,7 @@ html, body {
 }
 
 .social_links a {
-  color: var(--color-deep-berry); /* NEW */
+  color: var(--dark-color); 
   text-decoration: none;
   font-weight: 600;
   font-family: 'Playfair Display', serif;
@@ -441,10 +437,10 @@ html, body {
 }
 
 .social_links a:hover {
-  color: var(--color-off-white); /* NEW: White text on the mauve background */
+  color: var(--light-color);
 }
 
-/* Responsive */
+
 @media (max-width: 768px) {
   .contact_section {
     padding: 3rem 1.5rem;

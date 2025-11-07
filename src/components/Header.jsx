@@ -1,29 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import './header.css';
 
 function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen((prev) => !prev);
+  };
+
   return (
     <header className="header">
       <div className="header_container">
-        <nav className="header_nav">
-          <Link to="/" className="nav_link">Home</Link>
-          <Link to="/projects" className="nav_link">Projects</Link>
-          <Link to="/about-me" className="nav_link">About</Link>
+        {/* Navigation (visible on desktop, hidden on mobile) */}
+        <nav className={`header_nav ${menuOpen ? 'open' : ''}`}>
+          <Link to="/" className="nav_link" onClick={() => setMenuOpen(false)}>
+            Home
+          </Link>
+          <Link to="/projects" className="nav_link" onClick={() => setMenuOpen(false)}>
+            Projects
+          </Link>
+          <Link to="/about-me" className="nav_link" onClick={() => setMenuOpen(false)}>
+            About
+          </Link>
         </nav>
 
+        {/* CTA + Socials + Menu toggle */}
         <div className="header_cta">
-  <a 
-    href="/Katarina_Grantham_CV.pdf" 
-    className="resume_btn" 
-    download="Katarina_Grantham_CV.pdf" 
-    rel="noopener noreferrer"
-  >
-    Resume
-  </a>
-
-
+          <a
+            href="/Katarina_Grantham_CV.pdf"
+            className="resume_btn"
+            download="Katarina_Grantham_CV.pdf"
+            rel="noopener noreferrer"
+          >
+            Resume
+          </a>
 
           <a
             href="https://github.com/katag1001"
@@ -44,6 +56,17 @@ function Header() {
           >
             <FaLinkedin />
           </a>
+
+          {/* 3-dot (hamburger) menu */}
+          <div
+            className={`menu_toggle ${menuOpen ? 'active' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </header>
