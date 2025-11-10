@@ -14,15 +14,15 @@ const Projects = () => {
       <section className="projects_page">
         <div className="projects_grid">
 
-          {/* Wearable Project */}
+
           <a
             href="https://wearable-psi.vercel.app/clothes"
             className="project_card"
             target="_blank"
             rel="noopener noreferrer"
-          ><h3>Wearable</h3>
+          >
             <img src={Wearable} alt="Wearable" />
-            
+            <h3>Wearable</h3>
              <p>Wearable is an intelligent wardrobe assistant web app that pairs combinations of your clothes and suggests the best outfit selection for the day according to the weather and your style preferences.</p>
             <div className="skills">
               <span>React</span>
@@ -32,15 +32,15 @@ const Projects = () => {
             </div>
           </a>
 
-          {/* Orchestra Project */}
+
           <a
             href="https://sta-rehearsal-orchestra.vercel.app/"
             className="project_card"
             target="_blank"
             rel="noopener noreferrer"
-          ><h3>St Albans Evening Rehearsal Orchestra</h3>
+          >
             <img src={Orchestra} alt="St Albans Evening Rehearsal Orchestra" />
-            
+            <h3>St Albans Evening Rehearsal Orchestra</h3>
             <p>The St Albans Evening Rehearsal Orchestra site is a website that shows the orchestra’s schedule, rehearsal dates, and photos, making it easy for members and visitors to see what’s happening.</p>
             <div className="skills">
               <span>React</span>
