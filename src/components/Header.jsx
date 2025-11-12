@@ -59,7 +59,7 @@ function Header() {
             Resume
           </a>
 
-          {/* 3-dot (hamburger) menu */}
+          {/* alternate menu ----------------------------------------------------------*/}
           <div
             className={`menu_toggle ${menuOpen ? 'active' : ''}`}
             onClick={toggleMenu}
