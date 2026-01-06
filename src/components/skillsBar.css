@@ -1,0 +1,29 @@
+.skills_bar_wrapper {
+  position: sticky;
+  top: 65px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background: var(--fun-color);
+  padding: 0.6rem 0;
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.skills_track {
+  display: flex;
+  gap: 3rem;
+}
+
+.skill_item {
+  font-family: var(--font-fun);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--font-color-light);
+  flex-shrink: 0;
+}

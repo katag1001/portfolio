@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap');
+
+
+:root {
+  --background-color: rgba(248, 241, 244, 1);    
+  --alternate-color: rgba(233, 196, 207, 0.95); 
+  --dark-color: rgba(58, 34, 29, 1);          
+  --light-color: rgba(255, 252, 253, 0.9);      
+  --fun-color: rgb(154, 90, 107);         
+  --box-shadow-color: rgba(60, 32, 40, 0.12);    
+  --cursor-color: rgb(186, 56, 91);
+  --font-color-light: rgba(248, 241, 244, 1);
+  --font-color-dark: rgba(60, 32, 40, 1);
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-fun: 'DM Sans', sans-serif;   
+}
+
 .about_page {
   width: 100%;
   min-height: 100vh;
@@ -6,8 +24,8 @@
   justify-content: center;
   padding: 3rem 2rem;
   background-color: var(--color-light-background);
-  color: var(--color-deep-berry);
-  font-family: 'Cormorant Garamond', serif;
+  color: var(--font-color-dark);
+  font-family: var(--font-body);
   box-sizing: border-box;
   text-align: center;
 }
@@ -17,7 +35,7 @@
 }
 
 .about_title {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 3.5rem;
   color: var(--color-deep-berry);
@@ -25,18 +43,18 @@
 }
 
 .about_subtitle {
-  font-family: 'Homemade Apple', cursive;
+  font-family: var(--font-fun); 
   font-weight: 400;
   font-size: 2rem;
-  color: var(--color-deep-berry);
+  color: var(--font-color-dark);
   margin-bottom: 1.5rem;
 }
 
 .about_description {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-body);
   font-size: 1.3rem;
   line-height: 1.6;
-  color: var(--color-deep-berry);
+  color: var(--font-color-dark);
 }
 
 /* Responsive adjustments */

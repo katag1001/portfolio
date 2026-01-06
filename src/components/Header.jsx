@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import './header.css';
+import '../pages/styles.css';
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [cursor, setCursor] = useState({ x: 0, y: 0 });
 
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
@@ -12,7 +14,15 @@ function Header() {
 
   return (
     <header className="header">
+
+      {/* Cursor glow */}
+      <div
+        className="cursor_glow"
+        style={{ left: cursor.x, top: cursor.y }}
+      />
+
       <div className="header_container">
+
         {/* Navigation (visible on desktop, hidden on mobile) */}
         <nav className={`header_nav ${menuOpen ? 'open' : ''}`}>
           <Link to="/" className="nav_link" onClick={() => setMenuOpen(false)}>
@@ -28,8 +38,6 @@ function Header() {
 
         {/* CTA + Socials + Menu toggle */}
         <div className="header_cta">
-         
-
           <a
             href="https://github.com/katag1001"
             className="icon_btn"
@@ -50,7 +58,7 @@ function Header() {
             <FaLinkedin />
           </a>
 
-           <a
+          <a
             href="/Katarina_Grantham_CV.pdf"
             className="resume_btn"
             download="Katarina_Grantham_CV.pdf"
@@ -59,7 +67,7 @@ function Header() {
             Resume
           </a>
 
-          {/* alternate menu ----------------------------------------------------------*/}
+          {/* alternate menu for mobile */}
           <div
             className={`menu_toggle ${menuOpen ? 'active' : ''}`}
             onClick={toggleMenu}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&family=Homemade+Apple&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap');
 
 
 * {
@@ -12,11 +12,41 @@ html, body {
 
 
 :root {
-  --background-color: rgb(245, 237, 240); 
-  --alternate-color: rgba(239, 209, 209, 0.95);
-  --dark-color: rgb(48, 23, 18);  
-  --light-color: rgba(237, 237, 233, 0.9)
+  --background-color: rgba(248, 241, 244, 1);    
+  --alternate-color: rgba(233, 196, 207, 0.95); 
+  --dark-color: rgba(58, 34, 29, 1);          
+  --light-color: rgba(255, 252, 253, 0.9);      
+  --fun-color: rgb(154, 90, 107);         
+  --box-shadow-color: rgba(60, 32, 40, 0.12);    
+  --cursor-color:rgb(154, 90, 107); 
+  --font-color-light: rgba(248, 241, 244, 1);
+  --font-color-dark: rgba(60, 32, 40, 1);
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-fun: 'DM Sans', sans-serif;   
 }
+
+/*------------------------Cursor ------------------------------------------*/
+
+.cursor_glow {
+  position: fixed;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    var(--cursor-color) 15%,
+    var(--cursor-color) 20%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+  mix-blend-mode: multiply;
+}
+
+/*------------------------Cursor ------------------------------------------*/
+
 
 .full_page {
   width: 100vw;
@@ -24,13 +54,87 @@ html, body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  font-family: 'Cormorant Garamond', serif;
-  background-image: url('/back.jpg'); 
+  font-family: var(--font-fun);
+  /*background-image: url('/back.jpg');*/
+  background-color: var(--background-color);  
   background-size: cover; 
   background-position: center; 
   background-repeat: no-repeat;
-  color: var(--dark-color);
+  color: var(--font-color-dark);
 }
+
+/* BUBBLES --------------------------------------------------------------------------------- */
+.bubble_background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -150px;
+  width: 120px;
+  height: 120px;
+  background: var(--alternate-color);
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: floatUp 20s linear infinite;
+}
+
+
+.bubble:nth-child(1)  { left: 10%;  width: 80px;  height: 80px;  animation-duration: 18s; }
+.bubble:nth-child(2)  { left: 25%;  width: 140px; height: 140px; animation-duration: 26s; }
+.bubble:nth-child(3)  { left: 40%;  width: 60px;  height: 60px;  animation-duration: 16s; }
+.bubble:nth-child(4)  { left: 55%;  width: 100px; height: 100px; animation-duration: 22s; }
+.bubble:nth-child(5)  { left: 70%;  width: 160px; height: 160px; animation-duration: 30s; }
+.bubble:nth-child(6)  { left: 85%;  width: 90px;  height: 90px;  animation-duration: 20s; }
+
+.bubble:nth-child(7)  { left: 15%; animation-delay: 5s; }
+.bubble:nth-child(8)  { left: 35%; animation-delay: 10s; }
+.bubble:nth-child(9)  { left: 60%; animation-delay: 7s; }
+.bubble:nth-child(10) { left: 75%; animation-delay: 12s; }
+.bubble:nth-child(11) { left: 50%; animation-delay: 15s; }
+.bubble:nth-child(12) { left: 90%; animation-delay: 18s; }
+
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-120vh) translateX(40px);
+    opacity: 0;
+  }
+}
+
+.bubble.popped {
+  animation: pop 0.3s forwards;
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
 
 
 /* ----------------------------------MAIN SECTION ----------------------------------------------*/
@@ -38,14 +142,14 @@ html, body {
   width: 100%;
   min-height: 90vh; 
   height: auto;
-  margin-top: 4rem;
+  margin-top: 1rem;
   margin-left: 8rem;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding: 0rem 2rem;
   box-sizing: border-box;
-  color: var(--dark-color); 
+  color: var(--font-color-dark); 
 }
 
 .main_container {
@@ -71,35 +175,36 @@ html, body {
   align-items: flex-start; 
 }
 
-.main_image img {
+/*.main_image img {
   margin-top: 30px;
   width: 75%;
   max-width: 360px;
   border-radius: 15px; 
-  box-shadow: 0 10px 30px rgba(74, 32, 48, 0.1);
+  box-shadow: 0 10px 30px var(--box-shadow-color);
   border: 3px solid var(--dark-color);
-}
+}*/
 
 .main_content h1 {
   margin-top: 0;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--dark-color); 
+  color: var(--font-color-dark); 
   font-size: 4.5rem;
   line-height: 1.1;
 }
 
 .main_content h2 { 
   margin-top: 0;
-  font-family: 'Homemade Apple', cursive; 
+  font-family: var(--font-fun); 
   font-weight: 400;
-  color: var(--dark-color);
+  color: var(--font-color-dark);
   font-size: 3rem; 
   margin-bottom: 1.5rem;
 }
 
 .main_content p {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-fun);
+  color: var(--font-color-dark);
   font-size: 1.3rem;
   line-height: 1.6;
   max-width: 500px;
@@ -108,8 +213,8 @@ html, body {
 .cta_btn {
   background-color: transparent; 
   border: 2px solid var(--dark-color);
-  color: var(--dark-color); 
-  font-family: 'Playfair Display', serif;
+  color: var(--font-color-dark); 
+  font-family: var(--font-fun); 
   font-weight: 700; 
   padding: 0.9rem 2.2rem;
   border-radius: 8px; 
@@ -123,9 +228,9 @@ html, body {
 
 .cta_btn:hover {
   background-color: var(--dark-color); 
-  color: var(--light-color);
-  border-color: var(--background-color);
-  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.2); 
+  color: var(--font-color-light);
+  border-color: var(--dark-color);
+  box-shadow: 0 4px 12px var(--box-shadow-color);
   transform: translateY(-1px);
 }
 
@@ -138,30 +243,26 @@ html, body {
   max-width: 1200px;
   margin: 0px auto 80px auto;
   padding: 3rem 4rem; 
-  /*background-color: var(--light-color);
-
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.1);*/
   border: none; 
   text-align: center;
   box-sizing: border-box;
-  color: var(--dark-color);
-  font-family: 'Playfair Display', serif;
+  color: var(--font-color-dark);
+  font-family: var(--font-fun);
   z-index: 10;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 /*.projects_section:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(74, 32, 48, 0.15);
+  box-shadow: 0 8px 24px var(--box-shadow-color);
 }*/
 
 .projects_section .section_title {
   font-size: 3rem; 
   margin-bottom: 3rem;
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-fun);
   font-weight: 700;
-  color: var(--dark-color); 
+  color: var(--font-color-dark); 
   position: relative;
 }
 
@@ -185,28 +286,28 @@ html, body {
   border-radius: 10px; 
   padding: 2.5rem 1.5rem; 
   box-sizing: border-box;
-  box-shadow: 0 2px 10px rgba(74, 32, 48, 0.08); 
+  box-shadow: 0 2px 10px var(--box-shadow-color); 
   transition: transform 0.3s ease, box-shadow 0.3s ease; 
   text-align: center;
 }
 
 .project_card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(74, 32, 48, 0.15); 
+  box-shadow: 0 8px 20px var(--box-shadow-color); 
 }
 
 .project_card h3 {
-  font-family: 'Homemade Apple', cursive;
+  font-family: var(--font-fun);
   text-decoration: none;
   font-weight: 400;
   font-size: 2.2rem;
   margin-bottom: 1.5rem;
-  color: var(--dark-color); 
+  color: var(--font-color-dark);
 }
 
 .project_card p {
-  font-family: 'Cormorant Garamond', serif;
-  color: var(--dark-color);
+  font-family: var(--font-fun);
+  color: var(--font-color-dark);
   margin-bottom: 2rem;
   font-size: 1.2rem;
   font-weight: 400;
@@ -223,10 +324,10 @@ html, body {
   border: none;
   border-radius: 30px;
   padding: 0.4rem 1rem;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: var(--font-fun);
   font-weight: 400;
   background-color: var(--dark-color);
-  color: var(--light-color);
+  color: var(--font-color-light);
   transition: background-color 0.3s ease, color 0.3s ease;
   font-size: 1rem;
   text-transform: capitalize;
@@ -234,7 +335,7 @@ html, body {
 
 .project_card .skills span:hover {
   background-color: var(--dark-color); 
-  color: var(--light-color);
+  color: var(--font-color-light);
   border: none; 
 }
 
@@ -245,9 +346,8 @@ html, body {
   border-radius: 10px; 
   margin-bottom: 1.5rem; 
   transition: transform 0.3s ease;
-    border: 1px solid rgba(74, 32, 48, 0.2); 
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); 
-  
+    border: 1px solid var(--dark-color); 
+  box-shadow: 0 2px 6px var(--box-shadow-color);
 }
 
 .project_card:hover img {
@@ -271,179 +371,6 @@ html, body {
 
 
 
-/* ------------------------------SKILLS SECTION -------------------------------------------------*/
-.skills_section {
-  position: relative;
-  width: calc(100% - 40px);
-  max-width: 1200px; 
-  margin: 70px auto 140px auto;
-  padding: 3rem 4rem;
-  text-align: center;
-  background-color: var(--alternate-color); 
-  border-radius: 10px; 
-  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.1);
-  border: none;
-  box-sizing: border-box;
-  color: var(--dark-color); 
-  font-family: 'Playfair Display', serif;
-  z-index: 10;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-
-.skills_section:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(74, 32, 48, 0.15);
-}
-
-.skills_section .section_title {
-  font-size: 3rem;
-  margin-bottom: 3rem;
-  color: var(--dark-color);
-  font-weight: 700;
-  position: relative;
-}
-
-.skills_section .section_title h3::after {
-  content: none; 
-  text-decoration: none;
-}
-
-.skills_grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.skills_grid .skill {
-  border-radius: 40px;
-  padding: 0.8rem 1.8rem;
-  font-weight: 600;
-  background-color: var(--dark-color); 
-  color: var(--light-color); 
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(74, 32, 48, 0.2);
-}
-
-.skills_grid .skill:hover {
-
-  box-shadow: 0 6px 15px rgba(74, 32, 48, 0.15); 
-  background-color: var(--dark-color); 
-  color: var(--light-color);
-  border: none; 
-
-}
-
-.projects_section a:visited {
-  color: var(--dark-color); 
-}
-
-
-
-
-/* -------------------------------------------CONTACT SECTION -------------------------------
-.contact_section {
-  background-color: var(--alternate-color); 
-  width: 100%;
-  padding: 4rem 2rem 5rem 2rem; 
-  text-align: center;
-  color: var(--dark-color); 
-  box-sizing: border-box;
-}
-
-.contact_section .section_title {
-  font-family: 'Playfair Display', serif;
-  font-size: 3rem;
-  color: var(--dark-color); 
-  margin-bottom: 3rem;
-  font-weight: 700;
-}
-
-.contact_form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1.2rem;
-  max-width: 550px;
-  margin: 0 auto 3.5rem auto;
-}
-
-.contact_form input,
-.contact_form textarea {
-  width: 100%;
-  background-color: var(--light-color); 
-  border: 1px solid var(--alternate-color); 
-  border-radius: 8px; 
-  padding: 1rem;
-  color: var(--dark-color);
-  font-size: 1.1rem;
-  outline: none;
-  font-family: 'Cormorant Garamond', serif;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.contact_form input:focus,
-.contact_form textarea:focus {
-  border-color: var(--dark-color);
-  box-shadow: 0 0 0 2px rgba(74, 32, 48, 0.2);
-}
-
-.contact_form textarea {
-  height: 150px;
-  resize: vertical; 
-}
-
-
-.contact_btn {
-  background-color: var(--dark-color);
-  color: var(--light-color);
-  border: none;
-  padding: 0.9rem 2.2rem;
-  border-radius: 8px;
-  font-family: 'Playfair Display', serif;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 1.5rem;
-  box-shadow: 0 4px 12px rgba(74, 32, 48, 0.2);
-}
-
-.contact_btn:hover {
-  background-color: var(--light-color); 
-  color: var(--dark-color); 
-  border: 2px solid var(--dark-color); 
-}
-
-
-.social_links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.social_links a {
-  color: var(--dark-color); 
-  text-decoration: none;
-  font-weight: 600;
-  font-family: 'Playfair Display', serif;
-  font-size: 1.1rem;
-  transition: color 0.3s ease;
-}
-
-.social_links a:hover {
-  color: var(--light-color);
-}
-
-*/
 
 /**-------------------------MOBILE--------------------------------------------*/
 
@@ -453,6 +380,7 @@ html, body {
   .main_section {
   margin-top: 0rem;
   margin-left: 0rem;
+  height:auto;
   }
 
   .main_container {
@@ -519,5 +447,12 @@ html, body {
     width: 100%;
   }
 }
+
+
+
+
+
+
+
 
 
