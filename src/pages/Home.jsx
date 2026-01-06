@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import SkillsBar from '../components/SkillsBar';
+import EmailForm from '../components/EmailForm';
+
+
 import './styles.css';
 import Wearable from '../assets/wearable.png';
 import Orchestra from '../assets/orchestra.png';
@@ -39,6 +42,8 @@ const Home = () => {
       <Header />
       <SkillsBar />
 
+
+
       {/* Cursor Glow */}
       <div
         className="cursor_glow"
@@ -58,7 +63,9 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
+      <EmailForm /> 
+
+      {/* Projects Section 
       <section className="projects_section">
         <h2 className="section_title">Featured Projects</h2>
 
@@ -93,7 +100,9 @@ const Home = () => {
             </div>
           </a>
         </div>
-      </section>
+      </section>*/}
+
+
     </div>
   );
 };
