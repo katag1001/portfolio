@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap');
+
+:root {
+  --fun-color: rgb(154, 90, 107);
+  --font-color-light: rgba(248, 241, 244, 1);
+  --font-fun: 'DM Sans', sans-serif;
+}
+
+/* Wrapper */
 .skills_bar_wrapper {
   position: sticky;
   top: 65px;
@@ -6,20 +15,25 @@
   overflow: hidden;
   background: var(--fun-color);
   padding: 0.6rem 0;
+  z-index: 100;
 }
 
+/* Marquee outer container */
 .marquee {
-  display: flex;
-  width: max-content;
-  white-space: nowrap;
-  will-change: transform;
+  display: block;
+  width: 100%;
+  overflow: hidden;
 }
 
-.skills_track {
-  display: flex;
+/* Marquee inner container (continuous scroll) */
+.marquee__inner {
+  display: inline-flex;
   gap: 3rem;
+  white-space: nowrap;
+  animation: marquee 35s linear infinite;
 }
 
+/* Skill items */
 .skill_item {
   font-family: var(--font-fun);
   font-weight: 600;
@@ -27,3 +41,27 @@
   color: var(--font-color-light);
   flex-shrink: 0;
 }
+
+/* Animation: move exactly half the container (one list) */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .marquee__inner {
+    gap: 2rem;
+    animation-duration: 50s; /* slower on smaller screens */
+  }
+
+  .skill_item {
+    font-size: 1rem;
+  }
+}
+
+

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import React from "react";
 import "./skillsBar.css";
 
 const skills = [
@@ -13,43 +13,19 @@ const skills = [
 ];
 
 const SkillsBar = () => {
-  const marqueeRef = useRef(null);
-
-  useEffect(() => {
-    const marquee = marqueeRef.current;
-    const speed = 0.5; 
-
-    const list1 = marquee.children[0];
-    const listWidth = list1.offsetWidth;
-
-    let x = 0;
-    const animate = () => {
-      x -= speed;
-
-      if (-x >= listWidth) {
-        x += listWidth; 
-      }
-
-      marquee.style.transform = `translateX(${x}px)`;
-      requestAnimationFrame(animate);
-    };
-
-    requestAnimationFrame(animate);
-  }, []);
-
   return (
     <div className="skills_bar_wrapper">
-      <div className="marquee" ref={marqueeRef}>
-        <div className="skills_track">
+      <div className="marquee">
+        <div className="marquee__inner">
+          {/* Original list */}
           {skills.map((skill, i) => (
-            <span key={`a-${i}`} className="skill_item">
+            <span key={i} className="skill_item">
               {skill}
             </span>
           ))}
-        </div>
-        <div className="skills_track">
+          {/* Duplicate list for seamless scrolling */}
           {skills.map((skill, i) => (
-            <span key={`b-${i}`} className="skill_item">
+            <span key={`dup-${i}`} className="skill_item">
               {skill}
             </span>
           ))}
