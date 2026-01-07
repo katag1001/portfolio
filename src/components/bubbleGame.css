@@ -1,64 +1,51 @@
-/* Outer window */
+:root {
+  --background-color: rgba(248, 241, 244, 1);    
+  --alternate-color: rgba(233, 196, 207, 0.95); 
+  --dark-color: rgba(58, 34, 29, 1);          
+  --light-color: rgba(255, 252, 253, 0.9);      
+  --fun-color: rgb(154, 90, 107);         
+  --box-shadow-color: rgba(60, 32, 40, 0.12);    
+  --cursor-color:rgb(154, 90, 107); 
+  --font-color-light: rgba(248, 241, 244, 1);
+  --font-color-dark: rgba(60, 32, 40, 1);
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-fun: 'DM Sans', sans-serif;   
+}
+
 .game_window {
   position: relative;
   overflow: hidden;
-  border: 2px solid var(--dark-color, #333);
+  border: 2px solid var(--dark-color);
   border-radius: 8px;
   background-color: transparent;
-  box-shadow: 0 6px 20px var(--box-shadow-color, rgba(0,0,0,0.2));
+  box-shadow: 0 6px 20px var(--box-shadow-color);
+  width: 900px;
+  height: 500px;
 }
 
-/* Bubble containment layer */
 .game_bubble_layer {
   position: absolute;
   inset: 0;
   overflow: hidden;
 }
 
-/* Individual bubbles */
 .game_bubble {
-  position: absolute;
-  bottom: -120px;
+  position: absolute; 
   border-radius: 50%;
-  background: var(--alternate-color, #6EC1E4);
+  background: var(--alternate-color);
   filter: blur(2px);
-  animation: game_float_up linear infinite;
   pointer-events: auto;
-  transform-origin: center;
+  transform-origin: center bottom;
 }
 
-/* Float animation */
-@keyframes game_float_up {
-  0% {
-    transform: translateY(0) translateX(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-130%) translateX(40px);
-    opacity: 0;
-  }
-}
-
-/* Pop animation — additive scaling/fade */
+/* Pop animation */
 .game_bubble_popped {
   animation: game_pop 0.3s forwards;
 }
 
-/* Pop keyframes */
 @keyframes game_pop {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  50% {
-    transform: scale(1.5);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(0);
-    opacity: 0;
-  }
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.7; }
+  100% { transform: scale(0); opacity: 0; }
 }
