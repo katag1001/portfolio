@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=DM+Sans:wght@400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap');
 
-
 :root {
   --background-color: rgba(248, 241, 244, 1);    
   --alternate-color: rgba(233, 196, 207, 0.95); 
@@ -8,13 +7,14 @@
   --light-color: rgba(255, 252, 253, 0.9);      
   --fun-color: rgb(154, 90, 107);         
   --box-shadow-color: rgba(60, 32, 40, 0.12);    
-  --cursor-color:rgb(154, 90, 107); 
+  --cursor-color: rgb(154, 90, 107); 
   --font-color-light: rgba(248, 241, 244, 1);
   --font-color-dark: rgba(60, 32, 40, 1);
   --font-body: 'Inter', sans-serif;
   --font-heading: 'Playfair Display', serif;
   --font-fun: 'DM Sans', sans-serif;   
 }
+
 /* ---------------------------------- HEADER SECTION ----------------------------------------------*/
 .header {
   position: sticky;
@@ -40,12 +40,18 @@
   justify-content: space-between;
 }
 
+/* LEFT: menu toggle + nav */
+.header_left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Navigation */
 .header_nav {
   display: flex;
   gap: 3rem;
 }
-
-
 
 .nav_link {
   color: var(--dark-color);
@@ -74,7 +80,8 @@
   width: 100%;
 }
 
-.header_cta {
+/* RIGHT: socials + resume */
+.header_right {
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -100,7 +107,6 @@
   border-color: var(--dark-color);
 }
 
-
 .icon_btn {
   background-color: transparent; 
   border: 2px solid var(--dark-color);
@@ -122,21 +128,32 @@
   transform: translateY(-1px);
 }
 
-
 /* --------------------------------- Responsive ---------------------------------------------*/
 @media (max-width: 768px) {
+
+  .header_container {
+    justify-content: space-between; /* left and right sides */
+    align-items: center;
+    padding: 0 1rem;
+  }
+
+  /* LEFT: menu toggle + nav */
+  .header_left {
+    gap: 0.5rem;
+  }
 
   .header_nav {
     display: none;
     position: absolute;
     top: 65px;
-    right: 0;
+    left: 0; /* align dropdown to left */
     background-color: var(--background-color);
     border-radius: 0 0 10px 10px;
     padding: 1rem;
     flex-direction: column;
     gap: 1rem;
     z-index: 999;
+    min-width: 200px;
   }
 
   .header_nav.open {
@@ -146,9 +163,10 @@
 
   .nav_link {
     font-size: 1rem;
-    text-align: right;
+    text-align: left;
   }
 
+  /* Menu toggle */
   .menu_toggle {
     display: flex;
     flex-direction: column;
@@ -176,8 +194,14 @@
   .menu_toggle.active span:nth-child(3) {
     transform: translateY(-7.5px) rotate(-45deg);
   }
+
+  /* RIGHT: socials + resume */
+  .header_right {
+    gap: 0.5rem;
+  }
 }
 
+/* --------------------------------- Animations ---------------------------------------------*/
 @keyframes slideDown {
   from {
     opacity: 0;

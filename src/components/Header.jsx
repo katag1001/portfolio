@@ -23,24 +23,38 @@ function Header() {
 
       <div className="header_container">
 
-        {/* Navigation (visible on desktop, hidden on mobile) */}
-        <nav className={`header_nav ${menuOpen ? 'open' : ''}`}>
-          <Link to="/" className="nav_link" onClick={() => setMenuOpen(false)}>
-            Home
-          </Link>
-          <Link to="/projects" className="nav_link" onClick={() => setMenuOpen(false)}>
-            Projects
-          </Link>
-           {/*<Link to="/about-me" className="nav_link" onClick={() => setMenuOpen(false)}>
-            About
-          </Link>*/}
-          <Link to="/bubble-game" className="nav_link" onClick={() => setMenuOpen(false)}>
-            Bubble Game
-          </Link>  
-        </nav>
+        {/* LEFT: menu toggle + nav */}
+        <div className="header_left">
+          {/* Menu toggle for mobile */}
+          <div
+            className={`menu_toggle ${menuOpen ? 'active' : ''}`}
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
 
-        {/* CTA + Socials + Menu toggle */}
-        <div className="header_cta">
+          {/* Navigation */}
+          <nav className={`header_nav ${menuOpen ? 'open' : ''}`}>
+            <Link to="/" className="nav_link" onClick={() => setMenuOpen(false)}>
+              Home
+            </Link>
+            <Link to="/projects" className="nav_link" onClick={() => setMenuOpen(false)}>
+              Projects
+            </Link>
+            {/*<Link to="/about-me" className="nav_link" onClick={() => setMenuOpen(false)}>
+              About
+            </Link>*/}
+            <Link to="/bubble-game" className="nav_link" onClick={() => setMenuOpen(false)}>
+              Bubble Game
+            </Link>
+          </nav>
+        </div>
+
+        {/* RIGHT: socials + resume */}
+        <div className="header_right">
           <a
             href="https://github.com/katag1001"
             className="icon_btn"
@@ -69,17 +83,6 @@ function Header() {
           >
             Resume
           </a>
-
-          {/* alternate menu for mobile */}
-          <div
-            className={`menu_toggle ${menuOpen ? 'active' : ''}`}
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
         </div>
       </div>
     </header>
