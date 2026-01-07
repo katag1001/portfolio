@@ -9,7 +9,6 @@ const Bubbles = () => {
     <div className="full_page">
       <Header />
       <div className="bubbles_content">
-        <h1 className="bubbles_title">Don't let the bubbles touch the top!</h1>
         <div className="bubbles_game_wrapper">
          <BubbleGame width={900} height={500} />
         </div>
