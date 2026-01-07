@@ -58,7 +58,7 @@
 
 /* Modal container */
 .game_popup {
-  background: var(--alternate-color); /* matches CV popup modal */
+  background: var(--alternate-color); 
   padding: 2.5rem 3rem;
   border-radius: 15px;
   text-align: center;
@@ -125,7 +125,6 @@
   color: var(--font-color-light);
 }
 
-/* Popup fade animation (reused from CV popup) */
 @keyframes popupFade {
   from { transform: scale(0.8); opacity: 0; }
   to { transform: scale(1); opacity: 1; }

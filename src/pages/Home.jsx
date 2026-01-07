@@ -9,7 +9,7 @@ import MyPhoto from '../assets/me.png';
 
 const Home = () => {
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
-  const [showPopup, setShowPopup] = useState(true); // <-- popup state
+  const [showPopup, setShowPopup] = useState(false); // initially false
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,17 +20,26 @@ const Home = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  // Check localStorage on mount
+  useEffect(() => {
+    const hasSeenPopup = localStorage.getItem('hasSeenPopup');
+    if (!hasSeenPopup) {
+      setShowPopup(true);
+    }
+  }, []);
+
   const handleYes = () => {
+    localStorage.setItem('hasSeenPopup', 'true'); // mark as seen
     navigate('/bubble-game');
   };
 
   const handleNo = () => {
+    localStorage.setItem('hasSeenPopup', 'true'); // mark as seen
     setShowPopup(false);
   };
 
   return (
     <div className="full_page">
-      {/* Bubble Background */}
       <div className="bubble_background">
         {Array.from({ length: 12 }).map((_, i) => (
           <span key={i} className="bubble" />
@@ -40,10 +49,8 @@ const Home = () => {
       <Header />
       <SkillsBar />
 
-      {/* Main Section */}
       <section className="main_section">
         <div className="main_container">
-          {/* Text */}
           <div className="main_content">
             <h1>Hi, I'm Katy.</h1>
             <h2>I'm a Full Stack Developer.</h2>
@@ -52,7 +59,6 @@ const Home = () => {
             </Link>
           </div>
 
-          {/* Image */}
           <div className="main_image">
             <img src={MyPhoto} alt="Katy" />
           </div>
@@ -61,7 +67,6 @@ const Home = () => {
 
       <EmailForm />
 
-      {/* Popup Modal */}
       {showPopup && (
         <div className="popup_overlay">
           <div className="popup_modal">
