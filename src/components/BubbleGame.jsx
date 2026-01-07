@@ -203,7 +203,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
             <h2>
               Ready to pop?
             </h2>
-            <button onClick={startGame}>GO</button>
+            <button className="game_go" onClick={startGame}>GO</button>
           </div>
         </div>
       )}
@@ -215,7 +215,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
             <h2>Oh no, you lose 😢</h2>
             <p>You survived {timePlayed} seconds</p>
             {scoreMessage && <p><strong>{scoreMessage}</strong></p>}
-            <button onClick={startGame}>Play again</button>
+            <button className='game_go' onClick={startGame}>Play again</button>
           </div>
         </div>
       )}

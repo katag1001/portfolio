@@ -103,7 +103,7 @@
 }
 
 /* Yes/Primary button */
-.game_popup .game_yes {
+.game_popup .game_go {
   background-color: var(--dark-color);
   color: var(--font-color-light);
 }
