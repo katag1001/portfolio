@@ -34,6 +34,9 @@ function Header() {
           <Link to="/about-me" className="nav_link" onClick={() => setMenuOpen(false)}>
             About
           </Link>
+          {/* <Link to="/bubble-game" className="nav_link" onClick={() => setMenuOpen(false)}>
+            Bubble Game
+          </Link> */}
         </nav>
 
         {/* CTA + Socials + Menu toggle */}

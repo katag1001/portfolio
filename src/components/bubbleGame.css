@@ -1,0 +1,64 @@
+/* Outer window */
+.game_window {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--dark-color, #333);
+  border-radius: 8px;
+  background-color: transparent;
+  box-shadow: 0 6px 20px var(--box-shadow-color, rgba(0,0,0,0.2));
+}
+
+/* Bubble containment layer */
+.game_bubble_layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Individual bubbles */
+.game_bubble {
+  position: absolute;
+  bottom: -120px;
+  border-radius: 50%;
+  background: var(--alternate-color, #6EC1E4);
+  filter: blur(2px);
+  animation: game_float_up linear infinite;
+  pointer-events: auto;
+  transform-origin: center;
+}
+
+/* Float animation */
+@keyframes game_float_up {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-130%) translateX(40px);
+    opacity: 0;
+  }
+}
+
+/* Pop animation — additive scaling/fade */
+.game_bubble_popped {
+  animation: game_pop 0.3s forwards;
+}
+
+/* Pop keyframes */
+@keyframes game_pop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}

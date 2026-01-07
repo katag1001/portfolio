@@ -1,0 +1,54 @@
+:root {
+  --background-color: rgba(248, 241, 244, 1);    
+  --alternate-color: rgba(233, 196, 207, 0.95); 
+  --dark-color: rgba(58, 34, 29, 1);          
+  --light-color: rgba(255, 252, 253, 0.9);      
+  --fun-color: rgb(154, 90, 107);         
+  --box-shadow-color: rgba(60, 32, 40, 0.12);    
+  --cursor-color:rgb(154, 90, 107); 
+  --font-color-light: rgba(248, 241, 244, 1);
+  --font-color-dark: rgba(60, 32, 40, 1);
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-fun: 'DM Sans', sans-serif;   
+}
+
+
+
+.bubbles_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;   
+  justify-content: flex-start; 
+  width: 100%;
+  text-align: center;
+}
+
+
+.bubbles_title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--dark-color);
+}
+
+.bubbles_game_wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bubbles_title {
+    font-size: 2.2rem;
+  }
+
+  .bubbles_game_wrapper {
+    width: 95%;
+  }
+}
