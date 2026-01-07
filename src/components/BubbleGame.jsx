@@ -4,11 +4,11 @@ import './BubbleGame.css';
 const BubbleGame = ({ width = 420, height = 300 }) => {
   const [bubbles, setBubbles] = useState([]);
   const animationRef = useRef();
-  const globalSpeedRef = useRef(0.2); // initial speed for the first bubble
+  const globalSpeedRef = useRef(0.2); // << initial speed for the first bubble
 
-  // Create a new bubble
+  // Create a new bubble --------------------------------------------------------
   const createBubble = () => {
-    const speedIncrement = 0.02; // each new bubble slightly faster
+    const speedIncrement = 0.03; // <<< new bubble speed increase
     const newSpeed = globalSpeedRef.current + speedIncrement;
     globalSpeedRef.current = newSpeed;
 
@@ -22,38 +22,45 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
     };
   };
 
-  // Continuously release bubbles at a consistent interval
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setBubbles((prev) => [...prev, createBubble()]);
-    }, 500); // release a bubble every 700ms
+// Continuously release bubbles with a slightly increasing interval -----------------------
+useEffect(() => {
+  let delay = 700;
+  const delayIncrement = 30;
 
-    return () => clearInterval(interval);
-  }, []);
+  const releaseBubble = () => {
+    setBubbles((prev) => [...prev, createBubble()]);
+    delay += delayIncrement; 
+    setTimeout(releaseBubble, delay);
+  };
 
-  // Pop a bubble (play animation then remove)
+  releaseBubble();
+
+  return () => {};
+}, []);
+
+  // Bubble pop ----------------------------------------------------------------
   const handlePop = (id) => {
-    // mark as popped to trigger animation
+
     setBubbles((prev) =>
       prev.map((b) => (b.id === id ? { ...b, popped: true } : b))
     );
 
-    // remove the bubble after animation duration (e.g., 300ms)
+
     setTimeout(() => {
       setBubbles((prev) => prev.filter((b) => b.id !== id));
     }, 300);
   };
 
-  // Animate bubbles at constant speed
+  // Animate bubbles ----------------------------------------------------
   useEffect(() => {
     const animate = () => {
       setBubbles((prev) =>
         prev
           .map((b) => {
-            if (b.popped) return b; // don't move popped bubbles
+            if (b.popped) return b; 
             return { ...b, y: b.y + b.speed };
           })
-          // Remove bubbles that have floated off the top
+          
           .filter((b) => b.y < height + b.size)
       );
       animationRef.current = requestAnimationFrame(animate);
