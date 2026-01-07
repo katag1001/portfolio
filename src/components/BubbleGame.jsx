@@ -10,7 +10,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
   const [gameOver, setGameOver] = useState(false);
   const [timePlayed, setTimePlayed] = useState(0);
   const [scoreMessage, setScoreMessage] = useState('');
-  const [finalScore, setFinalScore] = useState(0); // store score for localStorage update
+  const [finalScore, setFinalScore] = useState(0); 
 
   const animationRef = useRef(null);
   const releaseTimeoutRef = useRef(null);
@@ -24,9 +24,6 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
   const globalSpeedRef = useRef(0.2);
   const bubblesPerReleaseRef = useRef(1);
 
-  // ------------------------------------------------------------
-  // Stop all loops
-  // ------------------------------------------------------------
   const stopAllLoops = () => {
     clearTimeout(releaseTimeoutRef.current);
     clearInterval(bubbleIncrementIntervalRef.current);
@@ -34,9 +31,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
     cancelAnimationFrame(animationRef.current);
   };
 
-  // ------------------------------------------------------------
-  // Create bubble
-  // ------------------------------------------------------------
+  // Create bubble -----------------------------------------------------------------------
   const createBubble = () => {
     globalSpeedRef.current += 0.03;
     return {
@@ -49,9 +44,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
     };
   };
 
-  // ------------------------------------------------------------
-  // Pop bubble
-  // ------------------------------------------------------------
+  // Pop bubble ------------------------------------------------------------
   const handlePop = (id) => {
     if (!gameStartedRef.current) return;
 
@@ -64,9 +57,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
     }, 300);
   };
 
-  // ------------------------------------------------------------
-  // Release bubbles
-  // ------------------------------------------------------------
+  // Release bubbles ------------------------------------------------------------
   const startReleasingBubbles = () => {
     let delay = 700;
 
@@ -89,9 +80,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
     }, 10000);
   };
 
-  // ------------------------------------------------------------
-  // Animation + lose detection
-  // ------------------------------------------------------------
+  // Animation + lose detection ----------------------------------------------------------
   const startAnimation = () => {
     const animate = () => {
       if (isVisibleRef.current && gameStartedRef.current) {
@@ -116,9 +105,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
     animationRef.current = requestAnimationFrame(animate);
   };
 
-  // ------------------------------------------------------------
-  // Timer
-  // ------------------------------------------------------------
+  // Timer ------------------------------------------------------------
   const startTimer = () => {
     timerIntervalRef.current = setInterval(() => {
       timePlayedRef.current += 1;
@@ -126,9 +113,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
     }, 1000);
   };
 
-  // ------------------------------------------------------------
-  // Game over + score message (do NOT update localStorage yet)
-  // ------------------------------------------------------------
+  // Game over  ------------------------------------------------------------
   const triggerGameOver = () => {
     gameStartedRef.current = false;
     setGameStarted(false);
@@ -152,9 +137,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
     setScoreMessage(message);
   };
 
-  // ------------------------------------------------------------
-  // Start / restart game (update localStorage for previous score)
-  // ------------------------------------------------------------
+  // Start  game  ------------------------------------------------------------
   const startGame = () => {
     // If restarting after a game, store previous scores
     if (gameOver) {
@@ -187,9 +170,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
     startTimer();
   };
 
-  // ------------------------------------------------------------
-  // Visibility pause / resume
-  // ------------------------------------------------------------
+  // Pause when not on the page ------------------------------------------------------------
   useEffect(() => {
     const handleVisibilityChange = () => {
       isVisibleRef.current = !document.hidden;
@@ -209,9 +190,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
   }, []);
 
-  // ------------------------------------------------------------
-  // Render
-  // ------------------------------------------------------------
+
   return (
     <div
       className="game_window"
@@ -222,9 +201,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
         <div className="game_overlay">
           <div className="game_popup">
             <h2>
-              Pop as many bubbles as you can before they reach the top!
-              <br />
-              Ready?
+              Ready to pop?
             </h2>
             <button onClick={startGame}>GO</button>
           </div>

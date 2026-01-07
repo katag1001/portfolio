@@ -347,6 +347,84 @@ html, body {
   color: inherit; 
 }
 
+/* ------------------------popup ---------------------------------------------------*/
+
+.popup_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(60, 32, 40, 0.6); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; 
+}
+
+
+.popup_modal {
+  background: var(--alternate-color);
+  padding: 2.5rem 3rem;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 15px 40px var(--box-shadow-color);
+  animation: popupFade 0.4s ease-out;
+}
+
+.popup_modal h3 {
+  font-family: var(--font-fun);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  color: var(--font-color-dark);
+}
+
+
+.popup_buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.popup_buttons button {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-family: var(--font-fun);
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.popup_yes {
+  background-color: var(--dark-color);
+  color: var(--font-color-light);
+}
+
+.popup_yes:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px var(--box-shadow-color);
+}
+
+.popup_no {
+  background-color: transparent;
+  border: 2px solid var(--dark-color);
+  color: var(--dark-color);
+}
+
+.popup_no:hover {
+  background-color: var(--dark-color);
+  color: var(--font-color-light);
+}
+
+
+@keyframes popupFade {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
 
 
 
