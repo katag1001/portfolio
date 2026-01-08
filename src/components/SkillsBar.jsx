@@ -3,6 +3,7 @@ import "./skillsBar.css";
 
 const skills = [
   "JavaScript",
+  "MongoDB",
   "React",
   "React Native",
   "Node.js",

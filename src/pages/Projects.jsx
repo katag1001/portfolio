@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Header from '../components/Header';
+import SkillsBar from '../components/SkillsBar';
 import BubbleCard from '../components/BubbleCard';
+import ProjectModal from '../components/ProjectModal';
 
 import WearableLogo from '../assets/wearable_logo.png';
 import OrchestraLogo from '../assets/sta_logo.png';
@@ -34,7 +36,6 @@ const projectData = [
   },
 ];
 
-
 const Projects = () => {
   const containerRef = useRef(null);
   const [modalOpen, setModalOpen] = useState(false);
@@ -65,32 +66,6 @@ const Projects = () => {
         if (item.x <= 0 || item.x + item.size >= container.offsetWidth) item.vx *= -1;
         if (item.y <= 0 || item.y + item.size >= container.offsetHeight) item.vy *= -1;
 
-        if (item.isCard) {
-          for (let j = 0; j < items.length; j++) {
-            if (j === idx) continue;
-            const other = items[j];
-            if (!other.isCard) continue;
-
-            const dx = item.x + item.size / 2 - (other.x + other.size / 2);
-            const dy = item.y + item.size / 2 - (other.y + other.size / 2);
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            const minDist = (item.size + other.size) / 2 + 20;
-
-            if (distance < minDist) {
-              const angle = Math.atan2(dy, dx);
-              const overlap = minDist - distance;
-              item.x += Math.cos(angle) * (overlap / 2);
-              item.y += Math.sin(angle) * (overlap / 2);
-              other.x -= Math.cos(angle) * (overlap / 2);
-              other.y -= Math.sin(angle) * (overlap / 2);
-              item.vx *= -1;
-              item.vy *= -1;
-              other.vx *= -1;
-              other.vy *= -1;
-            }
-          }
-        }
-
         item.el.style.left = `${item.x}px`;
         item.el.style.top = `${item.y}px`;
       });
@@ -114,8 +89,8 @@ const Projects = () => {
   return (
     <div className="full_page">
       <Header />
+      <SkillsBar /> 
 
-      {/* Bubbles container */}
       <div
         className={`bubble_background2 ${modalOpen ? 'bubbles_beneath_modal' : ''}`}
         ref={containerRef}
@@ -149,29 +124,11 @@ const Projects = () => {
         ))}
       </div>
 
-      {/* Modal rendered outside of bubbles */}
-      {modalOpen && currentProject && (
-        <div className="bubble_modal">
-          <div className="bubble_overlay" onClick={closeModal} />
-
-          <div className="bubble_content">
-            <button className="close_btn" onClick={closeModal}>✕</button>
-            <h2 className="bubble_title">
-  <a href={currentProject.link} target="_blank" rel="noopener noreferrer">
-    {currentProject.title}
-  </a>
-</h2>
-            <div className="bubble_slider">
-              {currentProject.images.map((img, i) => (
-                <div className="bubble_slide" key={i}>
-                  <img src={img.src} alt={`${currentProject.title} ${i}`} />
-                  <p>{img.caption}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
+      <ProjectModal
+        isOpen={modalOpen}
+        project={currentProject}
+        onClose={closeModal}
+      />
     </div>
   );
 };
