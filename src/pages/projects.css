@@ -6,10 +6,10 @@
 
 .bubble_background2 {
   position: absolute;
-  top: 65px;
+  top: 110px;
   left: 0;
   width: 100%;
-  height: calc(100% - 65px);
+  height: calc(100% - 110px);
   overflow: hidden;
   z-index: 0;
   pointer-events: none;

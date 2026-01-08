@@ -7,10 +7,26 @@ import EmailForm from '../components/EmailForm';
 import './styles.css';
 import MyPhoto from '../assets/me.png';
 
+
+
+
 const Home = () => {
+
   const [cursor, setCursor] = useState({ x: 0, y: 0 });
-  const [showPopup, setShowPopup] = useState(false); // initially false
+  const [showPopup, setShowPopup] = useState(false);
   const navigate = useNavigate();
+
+  const skills = [
+  "JavaScript",
+  "MongoDB",
+  "React",
+  "React Native",
+  "Node.js",
+  "TypeScript",
+  "HTML",
+  "CSS",
+  "SQL",
+];
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -20,7 +36,7 @@ const Home = () => {
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
-  // Check localStorage on mount
+
   useEffect(() => {
     const hasSeenPopup = localStorage.getItem('hasSeenPopup');
     if (!hasSeenPopup) {
@@ -29,12 +45,12 @@ const Home = () => {
   }, []);
 
   const handleYes = () => {
-    localStorage.setItem('hasSeenPopup', 'true'); // mark as seen
+    localStorage.setItem('hasSeenPopup', 'true'); 
     navigate('/bubble-game');
   };
 
   const handleNo = () => {
-    localStorage.setItem('hasSeenPopup', 'true'); // mark as seen
+    localStorage.setItem('hasSeenPopup', 'true'); 
     setShowPopup(false);
   };
 
@@ -47,7 +63,7 @@ const Home = () => {
       </div>
 
       <Header />
-      <SkillsBar />
+      <SkillsBar items={skills} />
 
       <section className="main_section">
         <div className="main_container">

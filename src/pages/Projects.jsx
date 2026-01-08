@@ -86,10 +86,14 @@ const Projects = () => {
     setCurrentProject(null);
   };
 
+  const scrollbar = [
+  "Select a bubble to take a look at my projects!",
+];
+
   return (
     <div className="full_page">
       <Header />
-      <SkillsBar /> 
+      <SkillsBar items={scrollbar} />
 
       <div
         className={`bubble_background2 ${modalOpen ? 'bubbles_beneath_modal' : ''}`}
