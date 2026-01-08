@@ -1,86 +1,103 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
 import Header from '../components/Header';
-import Wearable from '../assets/wearable.png';
-import Orchestra from '../assets/orchestra.png';
-import './styles.css';
+import BubbleCard from '../components/BubbleCard';
+
+import WearableLogo from '../assets/wearable_logo.png';
+import OrchestraLogo from '../assets/sta_logo.png';
+
+import WearableImage from '../assets/wearable.png';
+import OrchestraImage from '../assets/orchestra.png';
+
 import './projects.css';
 
+const NUM_DECORATIVE_BUBBLES = 10;
+
 const Projects = () => {
-  const [cursor, setCursor] = useState({ x: 0, y: 0 });
+  const containerRef = useRef(null);
+  const bubblesRef = useRef([]);
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
-      setCursor({ x: e.clientX, y: e.clientY });
-    };
+    const container = containerRef.current;
+    const elements = Array.from(container.querySelectorAll('.bouncing_bubble'));
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    // Initialize positions and velocities
+    const items = elements.map((el) => {
+      const size = parseInt(el.dataset.size, 10);
+      return {
+        el,
+        x: Math.random() * (container.offsetWidth - size),
+        y: Math.random() * (container.offsetHeight - size),
+        vx: (Math.random() * 2 + 1) * (Math.random() > 0.5 ? 1 : -1),
+        vy: (Math.random() * 2 + 1) * (Math.random() > 0.5 ? 1 : -1),
+        size,
+      };
+    });
+
+    function animate() {
+      items.forEach((item) => {
+        item.x += item.vx;
+        item.y += item.vy;
+
+        // Bounce off walls
+        if (item.x <= 0 || item.x + item.size >= container.offsetWidth) item.vx *= -1;
+        if (item.y <= 0 || item.y + item.size >= container.offsetHeight) item.vy *= -1;
+
+        // Apply position
+        item.el.style.left = `${item.x}px`;
+        item.el.style.top = `${item.y}px`;
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    animate();
   }, []);
 
   return (
     <div className="full_page">
       <Header />
 
-      {/* Bubble background */}
-      <div className="bubble_background">
-        {[...Array(12)].map((_, i) => (
-          <span key={i} className="bubble" />
-        ))}
-      </div>
+      {/* Bubble container */}
+      <div className="bubble_background2" ref={containerRef}>
+  {/* Decorative bubbles */}
+  {Array.from({ length: NUM_DECORATIVE_BUBBLES }).map((_, idx) => {
+    const size = 50 + Math.random() * 100;
+    return <div key={idx} className="bouncing_bubble decorative_bubble" data-size={size} style={{ width: size, height: size }} />;
+  })}
 
-      {/* Cursor glow */}
-      <div
-        className="cursor_glow"
-        style={{ left: cursor.x, top: cursor.y }}
-      />
+  {/* Project bubbles */}
+  <div
+    className="bouncing_bubble"
+    data-size={240}
+    style={{ width: 240, height: 240 }}
+  >
+    <BubbleCard
+      title="Wearable"
+      coverImage={WearableLogo}
+      images={[
+        { src: WearableImage, caption: 'AI-powered outfit recommendations' },
+        { src: WearableImage, caption: 'Weather-based clothing suggestions' },
+        { src: WearableImage, caption: 'Personal wardrobe management' }
+      ]}
+    />
+  </div>
 
-      <section className="projects_page">
-        <div className="projects_grid">
-          <a
-            href="https://wearable-psi.vercel.app/clothes"
-            className="project_card"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img src={Wearable} alt="Wearable" />
-            <h3>Wearable</h3>
-            <p>
-              Wearable is an intelligent wardrobe assistant web app that pairs
-              combinations of your clothes and suggests the best outfit selection
-              for the day according to the weather and your style preferences.
-            </p>
-            <div className="skills">
-              <span>React</span>
-              <span>CSS</span>
-              <span>Node.js</span>
-              <span>MongoDB</span>
-            </div>
-          </a>
+  <div
+    className="bouncing_bubble"
+    data-size={240}
+    style={{ width: 240, height: 240 }}
+  >
+    <BubbleCard
+      title="St Albans Evening Rehearsal Orchestra"
+      coverImage={OrchestraLogo}
+      images={[
+        { src: OrchestraImage, caption: 'Rehearsal schedule overview' },
+        { src: OrchestraImage, caption: 'Orchestra gallery and events' }
+      ]}
+    />
+  </div>
+</div>
 
-          <a
-            href="https://sta-rehearsal-orchestra.vercel.app/"
-            className="project_card"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={Orchestra}
-              alt="St Albans Evening Rehearsal Orchestra"
-            />
-            <h3>St Albans Evening Rehearsal Orchestra</h3>
-            <p>
-              The St Albans Evening Rehearsal Orchestra site shows the orchestra’s
-              schedule, rehearsal dates, and photos, making it easy for members
-              and visitors to see what’s happening.
-            </p>
-            <div className="skills">
-              <span>React</span>
-              <span>CSS</span>
-            </div>
-          </a>
-        </div>
-      </section>
     </div>
   );
 };

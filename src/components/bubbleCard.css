@@ -1,44 +1,7 @@
-/* ---------- PAGE LAYOUT ---------- */
-.full_page {
+/* ---------- Bubble Card ---------- */
+
+.bubble_card {
   position: relative;
-  min-height: 100vh;
-  background-color: var(--background-color);
-}
-
-/* ---------- BUBBLE BACKGROUND ---------- */
-.bubble_background2 {
-  position: absolute;
-  top: 65px; 
-  left: 0;
-  width: 100%;
-  height: calc(100% - 65px);
-  overflow: hidden;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* ---------- DECORATIVE BUBBLES ---------- */
-.bouncing_bubble {
-  position: absolute;
-  border-radius: 50%;
-}
-
-/* Pink decorative bubbles */
-.decorative_bubble {
-  background: pink;
-  opacity: 0.3;
-  filter: blur(3px);
-}
-
-/* ---------- PROJECT BUBBLES ---------- */
-.bouncing_bubble_card_wrapper {
-  position: absolute;
-  width: 240px;
-  height: 240px;
-  z-index: 1; /* above decorative bubbles */
-}
-
-.bouncing_bubble_card_wrapper .bubble_card {
   width: 240px;
   height: 240px;
   border-radius: 50%;
@@ -46,13 +9,14 @@
   cursor: pointer;
   box-shadow: 0 8px 20px var(--box-shadow-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  pointer-events: auto; /* allow interaction */
 }
 
 .bubble_card:hover {
   transform: translateY(-6px);
   box-shadow: 0 12px 28px var(--box-shadow-color);
 }
+
+/* ---------- Image ---------- */
 
 .bubble_card img {
   width: 100%;
@@ -61,10 +25,14 @@
   transition: filter 0.4s ease, transform 0.4s ease;
 }
 
+/* ---------- Hover Blur ---------- */
+
 .bubble_card:hover img {
   filter: blur(6px) brightness(0.7);
   transform: scale(1.05);
 }
+
+/* ---------- Overlay Text ---------- */
 
 .bubble_overlay_text {
   position: absolute;
@@ -91,6 +59,7 @@
   line-height: 1.3;
 }
 
+
 .bubble_card h3 {
   margin-top: 0.8rem;
   font-family: var(--font-fun);
@@ -99,7 +68,8 @@
   text-align: center;
 }
 
-/* ---------- MODAL ---------- */
+/* ---------- Modal ---------- */
+
 .bubble_modal {
   position: fixed;
   inset: 0;
@@ -112,20 +82,24 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+/* ---------- Modal Content ---------- */
+
 .bubble_content {
   position: relative;
   background-color: var(--background-color);
   width: 95%;
   max-width: 1200px;
-  height: 520px;
+  height: 520px; /* 👈 fixed height prevents vertical scroll */
   margin: 10vh auto;
   border-radius: 20px;
   padding: 2.5rem;
   display: flex;
   flex-direction: column;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
+  overflow: hidden; /* 👈 lock vertical overflow */
 }
+
+/* ---------- Close Button ---------- */
 
 .close_btn {
   position: absolute;
@@ -138,6 +112,8 @@
   color: var(--font-color-dark);
 }
 
+/* ---------- Title ---------- */
+
 .bubble_title {
   font-family: var(--font-fun);
   font-size: 1.8rem;
@@ -146,6 +122,8 @@
   text-align: center;
   flex-shrink: 0;
 }
+
+/* ---------- Horizontal Slider ---------- */
 
 .bubble_slider {
   display: flex;
@@ -164,6 +142,8 @@
   background: var(--fun-color);
   border-radius: 10px;
 }
+
+/* ---------- Slides ---------- */
 
 .bubble_slide {
   min-width: 320px;
