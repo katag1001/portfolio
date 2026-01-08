@@ -5,10 +5,26 @@ import BubbleCard from '../components/BubbleCard';
 import ProjectModal from '../components/ProjectModal';
 
 import WearableLogo from '../assets/wearable_logo.png';
-import OrchestraLogo from '../assets/sta_logo.png';
+import WearableLogin from '../assets/wearable_login.png';
+import WearableClothes from '../assets/wearable_clothes.png';
+import WearableOutfits from '../assets/wearable_outfits.png';
+import WearableBuilder from '../assets/wearable_builder.png';
+import WearableToday from '../assets/wearable_today.png';
 
-import WearableImage from '../assets/wearable.png';
+import OrchestraLogo from '../assets/sta_logo.png';
 import OrchestraImage from '../assets/orchestra.png';
+import OrchestraGallery from '../assets/sta_gallery.png';
+import OrchestraMap from '../assets/sta_map.png';
+
+import TravlrLogo from '../assets/travlr_logo.png';
+import TravlrJapan from '../assets/travlr_japan.jpg';
+import TravlrDubai from '../assets/travlr_dubai.jpg';
+import TravlrItinerary from '../assets/travlr_itinerary.jpg';
+import TravlrPacking from '../assets/travlr_packing.jpg';
+import TravlrBudget from '../assets/travlr_budget.jpg';
+import TravlrDay from '../assets/travlr_day.jpg';
+import TravlrTransport from '../assets/travlr_transport.jpg';
+import TravlrHotel from '../assets/travlr_hotel.jpg';
 
 import './projects.css';
 
@@ -20,9 +36,11 @@ const projectData = [
     coverImage: WearableLogo,
     link: "https://wearable-psi.vercel.app/",
     images: [
-      { src: WearableImage, caption: 'AI-powered outfit recommendations' },
-      { src: WearableImage, caption: 'Weather-based clothing suggestions' },
-      { src: WearableImage, caption: 'Personal wardrobe management' },
+      { src: WearableLogin, caption: 'Login to view and pair your clothes. Database powered by MongoDB.' },
+      { src: WearableClothes, caption: 'Upload and view your clothes. Everything will automatically be paired with other items on upload' },
+      { src: WearableOutfits, caption: 'Automatic pairing algorithm will pair up to 3 items and automatically give temperatures and seasons depending on the items used. Everything is matched based on season, color, pattern and temperature.' },
+      { src: WearableBuilder, caption: 'The user can also put together their own outfits.' },
+      { src: WearableToday, caption: 'Location and weather API will combine with the database of outfits to suggest options for today. The options are ranked to ensure the same outfits are not suggested on consecutive days.' },
     ],
   },
   {
@@ -30,8 +48,24 @@ const projectData = [
     coverImage: OrchestraLogo,
     link: "https://sta-rehearsal-orchestra.vercel.app/",
     images: [
-      { src: OrchestraImage, caption: 'Rehearsal schedule overview' },
-      { src: OrchestraImage, caption: 'Orchestra gallery and events' },
+      { src: OrchestraImage, caption: 'Official site for the St Albans Evening Rehearsal Orchestra to view events, itineraries, rehearsal lists and contact details.' },
+      { src: OrchestraMap, caption: 'Google Maps integration for venue locations' },
+      { src: OrchestraGallery, caption: 'Toggle around different galleries that will feed the correct pictures automatically.' },
+    ],
+  },
+    {
+    title: "Travlr",
+    coverImage: TravlrLogo,
+    images: [
+      { src: TravlrJapan, caption: 'Add trips so that you can organise your travel plans' },
+      { src: TravlrDubai, caption: 'Different destinations will trigger fun backgrounds that match' },
+
+      { src: TravlrTransport, caption: 'Pick from a dropdown of transportation options.' },
+      { src: TravlrHotel, caption: 'Add in all your hotels in one convenient place.' },
+      { src: TravlrItinerary, caption: 'Check out your itinerary in the calendar function' },
+      { src: TravlrDay, caption: 'Hotels and transport will automatically be added to the itinerary. Hotel costs will be split over the number of nights.' },
+      { src: TravlrBudget, caption: 'Add different budgets that will total at the top. All trips will have automatic transport and hotel budgets.' },
+      { src: TravlrPacking, caption: 'Add as many packing lists as you like and then add and tick off items' },
     ],
   },
 ];

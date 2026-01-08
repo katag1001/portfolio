@@ -26,6 +26,7 @@ const Home = () => {
   "HTML",
   "CSS",
   "SQL",
+  "Google app scripts",
 ];
 
   useEffect(() => {

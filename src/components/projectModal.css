@@ -1,108 +1,145 @@
-/*------------------------------Modal popup styles----------------------------------------*/
+/* ===================== Modal Shell ===================== */
 
 .bubble_modal {
   position: fixed;
   inset: 0;
   z-index: 999;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .bubble_overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(60, 32, 40, 0.35);
+  backdrop-filter: blur(4px);
 }
 
+/* ===================== Modal Content ===================== */
 
 .bubble_content {
   position: relative;
-  background-color: var(--background-color);
-  width: 95%;
-  max-width: 1200px;
-  height: 500px;
-  margin: 12vh auto;
-  border-radius: 20px;
-  padding: 1.5rem;
+  background: var(--light-color);
+  width: min(1100px, 92vw);
+  max-height: 80vh;
+  border-radius: 24px;
+  padding: 2.5rem 2.5rem 2rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 10px 40px var(--box-shadow-color);
-  overflow: hidden;
+  box-shadow:
+    0 20px 40px var(--box-shadow-color),
+    0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: auto;
 }
+
+/* ===================== Scrollbars (Unified Thickness) ===================== */
+
+.bubble_content::-webkit-scrollbar,
+.bubble_slider::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.bubble_content::-webkit-scrollbar-thumb,
+.bubble_slider::-webkit-scrollbar-thumb {
+  background: var(--alternate-color);
+  border-radius: 10px;
+}
+
+/* ===================== Close Button ===================== */
 
 .close_btn {
   position: absolute;
   top: 1.2rem;
-  right: 1.5rem;
-  background: none;
+  right: 1.4rem;
+  background: var(--alternate-color);
   border: none;
-  font-size: 1.6rem;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.2rem;
   cursor: pointer;
-  color: var(--font-color-dark);
+  color: var(--dark-color);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.close_btn:hover {
+  background: var(--fun-color);
+  color: var(--font-color-light);
+  transform: scale(1.05);
+}
+
+/* ===================== Title ===================== */
+
+.bubble_title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.8rem;
 }
 
 .bubble_title a {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--dark-color);
+  text-decoration: none;
+  position: relative;
+}
+
+.bubble_title a::after {
+  content: "";
   display: block;
-  text-align: center;
-  font-family: var(--font-fun);
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: var(--font-color-dark);
-  flex-shrink: 0;
+  width: 60%;
+  height: 2px;
+  background: var(--fun-color);
+  margin: 0.6rem auto 0;
+  border-radius: 2px;
 }
 
-
-.bubble_title a:hover {
-  color: var(--font-color-dark);
-  transform: scale(1.05); 
-  text-decoration: none;
-}
-
-.bubble_title a:active {
-  color: var(--font-color-dark);
-  transform: scale(0.98); 
-  text-decoration: none;
-}
-
-.bubble_title a:focus {
-  outline: none;
-}
-
+/* ===================== Slider ===================== */
 
 .bubble_slider {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem;
   overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 1rem;
-  height: 100%;
+  padding-bottom: 1.5rem;
+  scroll-snap-type: x mandatory;
 }
 
-.bubble_slider::-webkit-scrollbar {
-  height: 8px;
-}
-
-.bubble_slider::-webkit-scrollbar-thumb {
-  background: var(--font-color-dark);
-  border-radius: 10px;
-}
+/* ===================== Slides ===================== */
 
 .bubble_slide {
-  min-width: 320px;
+  scroll-snap-align: center;
+  background: var(--background-color);
+  border-radius: 18px;
+  padding: 1.2rem;
+  width: clamp(240px, 28vw, 340px);
   flex-shrink: 0;
-  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
 }
+
+/* ===================== Images (No Cropping) ===================== */
 
 .bubble_slide img {
   width: 100%;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 1rem;
-  border: 1px solid var(--dark-color);
+  height: 220px;
+  object-fit: contain;   /* ← ensures full image always visible */
+  border-radius: 14px;
+  margin-bottom: 0.8rem;
+  background: var(--light-color);
 }
 
+/* ===================== Captions ===================== */
+
 .bubble_slide p {
-  font-family: var(--font-fun);
-  font-size: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.5;
   color: var(--font-color-dark);
+  opacity: 0.85;
+  margin-top: auto;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
