@@ -121,7 +121,7 @@ const Projects = () => {
   };
 
   const scrollbar = [
-  "Select a bubble to take a look at my projects!",
+  "                                                     Select a bubble to take a look at my projects!",
 ];
 
   return (

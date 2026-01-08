@@ -1,5 +1,3 @@
-/* ===================== Modal Shell ===================== */
-
 .bubble_modal {
   position: fixed;
   inset: 0;
@@ -7,7 +5,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .bubble_overlay {
@@ -15,16 +12,14 @@
   inset: 0;
   background: rgba(60, 32, 40, 0.35);
   backdrop-filter: blur(4px);
-  animation: fadeIn 0.3s ease forwards;
   box-shadow: 0 15px 35px var(--box-shadow-color);
 }
 
-/* ===================== Modal Content ===================== */
 .bubble_content {
-  position: relative;
+  position: sticky;
   background: var(--light-color);
   width: min(900px, 90vw);
-  max-height: 85vh;
+  height: 85vh;
   border-radius: 24px;
   padding: 2rem;
   display: flex;
@@ -36,29 +31,6 @@
     0 4px 12px rgba(0, 0, 0, 0.05);
   overflow: hidden;
 }
-
-/* ===================== Carousel Viewport (flexible for text) ===================== */
-.carousel_viewport {
-  width: 100%;
-  flex: 1; /* take remaining vertical space */
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.bubble_slide p {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.5;
-  color: var(--font-color-dark);
-  opacity: 0.9;
-  margin-top: 0.5rem;
-  white-space: normal;
-  overflow-wrap: break-word;
-}
-
-/* ===================== Close Button ===================== */
 
 .close_btn {
   position: absolute;
@@ -81,12 +53,10 @@
   transform: scale(1.05);
 }
 
-/* ===================== Title ===================== */
-
 .bubble_title {
   display: flex;
   justify-content: center;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1rem;
 }
 
 .bubble_title a {
@@ -107,41 +77,59 @@
   border-radius: 2px;
 }
 
-/* ===================== Carousel Container ===================== */
 
-.bubble_slider {
-  position: relative;
-  width: 100%;
-}
-
-
-
-/* Track that moves slides */
-.carousel_track {
+.bubble_slide_container {
   display: flex;
-  transition: transform 0.4s ease;
-  width: 100%;
-}
 
-.bubble_slide {
-  min-width: 100%;
-  display: flex;
-  flex-direction: column;
+  padding: 0rem 5rem;
   align-items: center;
-  text-align: center;
-  padding: 0 1rem;
-  overflow-y: auto; /* allow scrolling if text is long */
+  justify-content: center;
+  gap: 1rem;
 }
 
-/* ===================== Images ===================== */
 
-.bubble_slide img {
+
+.bubble_slide_container.landscape {
+  flex-direction: column;
   width: 100%;
-  max-height: 60vh; /* take up most of modal but leave space for text */
+  height: 100%;
+}
+
+.bubble_slide_container.portrait p {
+  margin-left: 1rem;
+  flex: 1;               
+  white-space: normal;  
+  word-wrap: break-word;
+  overflow: visible;
+  text-align: center;    
+}
+
+.bubble_slide_container img {
   object-fit: contain;
   border-radius: 14px;
-  margin-bottom: 1rem;
-  background: var(--light-color);
+}
+
+.bubble_slide_container p {
+  font-family: var(--font-body);
+  line-height: 1.5;
+  color: var(--font-color-dark);
+  opacity: 0.9;
+  margin: 0;
+  flex-shrink: 0;
+  overflow: visible;
+  word-wrap: break-word;
+  text-align: center;
+}
+
+.bubble_slide_container.landscape p {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 16px;
+}
+
+.bubble_slide_container.portrait p {
+  margin-left: 1rem;
+  font-size: 20px;
 }
 
 
@@ -177,14 +165,71 @@
   right: 10px;
 }
 
-/* ===================== Scrollbars (for content overflow) ===================== */
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .bubble_content {
+    width: 95vw;
+    height: 80vh;
+    padding: 1rem 1.5rem;
+  }
 
-.bubble_content::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  .bubble_slide_container {
+    padding: 0 1rem;
+    gap: 0.5rem;
+  }
+
+  .bubble_slide_container.landscape {
+    gap: 0.75rem;
+  }
+
+  .bubble_slide_container.portrait {
+    flex-direction: column; /* stack image above text on small screens */
+  }
+
+  .bubble_slide_container img {
+    width: 100%;       /* fill width */
+    max-height: 50vh;  /* keep it visible with text */
+  }
+
+  .bubble_slide_container p {
+    font-size: 14px;   /* smaller font for readability */
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .bubble_title a {
+    font-size: 1.5rem;
+  }
+
+  .carousel_arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 1.5rem;
+  }
 }
 
-.bubble_content::-webkit-scrollbar-thumb {
-  background: var(--alternate-color);
-  border-radius: 10px;
+/* Extra small screens */
+@media (max-width: 480px) {
+  .bubble_content {
+    padding: 0.5rem 1rem;
+    height: 75vh;
+  }
+
+  .bubble_slide_container img {
+    max-height: 40vh;
+  }
+
+  .bubble_slide_container p {
+    font-size: 13px;
+  }
+
+  .bubble_title a {
+    font-size: 1.3rem;
+  }
+
+  .carousel_arrow {
+    width: 28px;
+    height: 28px;
+    font-size: 1.2rem;
+  }
 }

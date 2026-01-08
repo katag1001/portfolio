@@ -13,6 +13,7 @@ const SkillsBar = ({ items }) => {
             </span>
           ))}
 
+    
         </div>
       </div>
     </div>
