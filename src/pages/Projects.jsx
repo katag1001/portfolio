@@ -54,7 +54,7 @@ const projectData = [
     ],
   },
     {
-    title: "Travlr",
+    title: "Travlr Mobile App",
     coverImage: TravlrLogo,
     images: [
       { src: TravlrJapan, caption: 'Add trips so that you can organise your travel plans' },

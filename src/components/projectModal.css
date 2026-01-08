@@ -3,10 +3,11 @@
 .bubble_modal {
   position: fixed;
   inset: 0;
-  z-index: 999;
+  z-index: 1400;
   display: flex;
   align-items: center;
   justify-content: center;
+
 }
 
 .bubble_overlay {
@@ -14,37 +15,47 @@
   inset: 0;
   background: rgba(60, 32, 40, 0.35);
   backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease forwards;
+  box-shadow: 0 15px 35px var(--box-shadow-color);
 }
 
 /* ===================== Modal Content ===================== */
-
 .bubble_content {
   position: relative;
   background: var(--light-color);
-  width: min(1100px, 92vw);
-  max-height: 80vh;
+  width: min(900px, 90vw);
+  max-height: 85vh;
   border-radius: 24px;
-  padding: 2.5rem 2.5rem 2rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  z-index: 2000;
   box-shadow:
     0 20px 40px var(--box-shadow-color),
     0 4px 12px rgba(0, 0, 0, 0.05);
-  overflow: auto;
+  overflow: hidden;
 }
 
-/* ===================== Scrollbars (Unified Thickness) ===================== */
-
-.bubble_content::-webkit-scrollbar,
-.bubble_slider::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+/* ===================== Carousel Viewport (flexible for text) ===================== */
+.carousel_viewport {
+  width: 100%;
+  flex: 1; /* take remaining vertical space */
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.bubble_content::-webkit-scrollbar-thumb,
-.bubble_slider::-webkit-scrollbar-thumb {
-  background: var(--alternate-color);
-  border-radius: 10px;
+.bubble_slide p {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--font-color-dark);
+  opacity: 0.9;
+  margin-top: 0.5rem;
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 /* ===================== Close Button ===================== */
@@ -96,50 +107,84 @@
   border-radius: 2px;
 }
 
-/* ===================== Slider ===================== */
+/* ===================== Carousel Container ===================== */
 
 .bubble_slider {
-  display: flex;
-  gap: 2rem;
-  overflow-x: auto;
-  padding-bottom: 1.5rem;
-  scroll-snap-type: x mandatory;
+  position: relative;
+  width: 100%;
 }
 
-/* ===================== Slides ===================== */
+
+
+/* Track that moves slides */
+.carousel_track {
+  display: flex;
+  transition: transform 0.4s ease;
+  width: 100%;
+}
 
 .bubble_slide {
-  scroll-snap-align: center;
-  background: var(--background-color);
-  border-radius: 18px;
-  padding: 1.2rem;
-  width: clamp(240px, 28vw, 340px);
-  flex-shrink: 0;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  min-width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+  overflow-y: auto; /* allow scrolling if text is long */
 }
 
-/* ===================== Images (No Cropping) ===================== */
+/* ===================== Images ===================== */
 
 .bubble_slide img {
   width: 100%;
-  height: 220px;
-  object-fit: contain;   /* ← ensures full image always visible */
+  max-height: 60vh; /* take up most of modal but leave space for text */
+  object-fit: contain;
   border-radius: 14px;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
   background: var(--light-color);
 }
 
-/* ===================== Captions ===================== */
 
-.bubble_slide p {
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: var(--font-color-dark);
-  opacity: 0.85;
-  margin-top: auto;
-  white-space: normal;
-  overflow-wrap: break-word;
+.carousel_arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  color: var(--dark-color);
+  background: var(--alternate-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: 0.2s ease;
+}
+
+.carousel_arrow:hover {
+  background: var(--fun-color);
+  color: var(--font-color-light);
+}
+
+.carousel_arrow.prev {
+  left: 10px;
+}
+
+.carousel_arrow.next {
+  right: 10px;
+}
+
+/* ===================== Scrollbars (for content overflow) ===================== */
+
+.bubble_content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.bubble_content::-webkit-scrollbar-thumb {
+  background: var(--alternate-color);
+  border-radius: 10px;
 }

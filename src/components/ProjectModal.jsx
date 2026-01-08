@@ -1,9 +1,21 @@
 // components/ProjectModal.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import './projectModal.css';
 
 const ProjectModal = ({ isOpen, project, onClose }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   if (!isOpen || !project) return null;
+
+  const totalImages = project.images.length;
+
+  const goPrev = () => {
+    setCurrentIndex((prev) => (prev === 0 ? totalImages - 1 : prev - 1));
+  };
+
+  const goNext = () => {
+    setCurrentIndex((prev) => (prev === totalImages - 1 ? 0 : prev + 1));
+  };
 
   return (
     <div className="bubble_modal">
@@ -19,12 +31,28 @@ const ProjectModal = ({ isOpen, project, onClose }) => {
         </h2>
 
         <div className="bubble_slider">
-          {project.images.map((img, i) => (
-            <div className="bubble_slide" key={i}>
-              <img src={img.src} alt={`${project.title} ${i}`} />
-              <p>{img.caption}</p>
+          {/* Slide viewport */}
+          <div className="carousel_viewport">
+            <div
+              className="carousel_track"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {project.images.map((img, idx) => (
+                <div className="bubble_slide" key={idx}>
+                  <img src={img.src} alt={`${project.title} ${idx}`} />
+                  <p>{img.caption}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Navigation Arrows */}
+          {totalImages > 1 && (
+            <>
+              <button className="carousel_arrow prev" onClick={goPrev}>‹</button>
+              <button className="carousel_arrow next" onClick={goNext}>›</button>
+            </>
+          )}
         </div>
       </div>
     </div>
