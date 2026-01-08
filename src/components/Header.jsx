@@ -41,9 +41,9 @@ function Header() {
             <Link to="/" className="nav_link" onClick={() => setMenuOpen(false)}>
               Home
             </Link>
-            {/*<Link to="/projects" className="nav_link" onClick={() => setMenuOpen(false)}>
+            <Link to="/projects" className="nav_link" onClick={() => setMenuOpen(false)}>
               Projects
-            </Link>*/}
+            </Link>
             {/*<Link to="/about-me" className="nav_link" onClick={() => setMenuOpen(false)}>
               About
             </Link>*/}
