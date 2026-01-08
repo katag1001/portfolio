@@ -49,7 +49,7 @@ const projectData = [
     link: "https://sta-rehearsal-orchestra.vercel.app/",
     images: [
       { src: OrchestraImage, caption: 'Official site for the St Albans Evening Rehearsal Orchestra to view events, itineraries, rehearsal lists and contact details.' },
-      { src: OrchestraMap, caption: 'Google Maps integration for venue locations' },
+      { src: OrchestraMap, caption: 'Google Maps integration to show the venue location.' },
       { src: OrchestraGallery, caption: 'Toggle around different galleries that will feed the correct pictures automatically.' },
     ],
   },
@@ -57,15 +57,15 @@ const projectData = [
     title: "Travlr Mobile App",
     coverImage: TravlrLogo,
     images: [
-      { src: TravlrJapan, caption: 'Add trips so that you can organise your travel plans' },
-      { src: TravlrDubai, caption: 'Different destinations will trigger fun backgrounds that match' },
+      { src: TravlrJapan, caption: 'Add trips so that you can organise your travel plans.' },
+      { src: TravlrDubai, caption: 'Different destinations will trigger fun backgrounds that match the destination theme.' },
 
-      { src: TravlrTransport, caption: 'Pick from a dropdown of transportation options.' },
-      { src: TravlrHotel, caption: 'Add in all your hotels in one convenient place.' },
-      { src: TravlrItinerary, caption: 'Check out your itinerary in the calendar function' },
-      { src: TravlrDay, caption: 'Hotels and transport will automatically be added to the itinerary. Hotel costs will be split over the number of nights.' },
+      { src: TravlrTransport, caption: 'Pick from a dropdown of transportation options and add in the details of the your transport plans. Everything will automatically feed through to the itinerary and budget.' },
+      { src: TravlrHotel, caption: 'Add in all your hotels in one convenient place. Everything will automatically feed through to the itinerary and budget.' },
+      { src: TravlrItinerary, caption: 'Check out your itinerary in the calendar function.' },
+      { src: TravlrDay, caption: 'Hotel costs are automatically split over the number of nights you are staying. Add in other activities with automated icons that map to the title of the activity.' },
       { src: TravlrBudget, caption: 'Add different budgets that will total at the top. All trips will have automatic transport and hotel budgets.' },
-      { src: TravlrPacking, caption: 'Add as many packing lists as you like and then add and tick off items' },
+      { src: TravlrPacking, caption: 'Add as many packing lists as you like and then add and tick off items.' },
     ],
   },
 ];
@@ -121,7 +121,7 @@ const Projects = () => {
   };
 
   const scrollbar = [
-  "                                                     Select a bubble to take a look at my projects!",
+  "Select a bubble to take a look at my projects!",
 ];
 
   return (
