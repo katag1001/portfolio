@@ -1,14 +1,12 @@
-/* ---------- PAGE LAYOUT ---------- */
 .full_page {
   position: relative;
   min-height: 100vh;
   background-color: var(--background-color);
 }
 
-/* ---------- BUBBLE BACKGROUND ---------- */
 .bubble_background2 {
   position: absolute;
-  top: 65px; 
+  top: 65px;
   left: 0;
   width: 100%;
   height: calc(100% - 65px);
@@ -17,171 +15,27 @@
   pointer-events: none;
 }
 
-/* ---------- DECORATIVE BUBBLES ---------- */
 .bouncing_bubble {
   position: absolute;
-  border-radius: 50%;
+  z-index: 1;
+  pointer-events: auto;
+  transition: transform 0.1s linear;
 }
 
-/* Pink decorative bubbles */
 .decorative_bubble {
   background: pink;
   opacity: 0.3;
   filter: blur(3px);
-}
-
-/* ---------- PROJECT BUBBLES ---------- */
-.bouncing_bubble_card_wrapper {
-  position: absolute;
-  width: 240px;
-  height: 240px;
-  z-index: 1; /* above decorative bubbles */
-}
-
-.bouncing_bubble_card_wrapper .bubble_card {
-  width: 240px;
-  height: 240px;
   border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
-  box-shadow: 0 8px 20px var(--box-shadow-color);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  pointer-events: auto; /* allow interaction */
 }
 
-.bubble_card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px var(--box-shadow-color);
-}
-
-.bubble_card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: filter 0.4s ease, transform 0.4s ease;
-}
-
-.bubble_card:hover img {
-  filter: blur(6px) brightness(0.7);
-  transform: scale(1.05);
-}
-
-.bubble_overlay_text {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+.bubbles_beneath_modal .bouncing_bubble {
   opacity: 0;
-  transition: opacity 0.4s ease;
   pointer-events: none;
+  z-index: 0 !important;
 }
 
-.bubble_card:hover .bubble_overlay_text {
-  opacity: 1;
-}
-
-.bubble_overlay_text h3 {
-  font-family: var(--font-fun);
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--font-color-light);
-  padding: 0 1.5rem;
-  line-height: 1.3;
-}
-
-.bubble_card h3 {
-  margin-top: 0.8rem;
-  font-family: var(--font-fun);
-  font-size: 1.1rem;
-  color: var(--font-color-dark);
-  text-align: center;
-}
-
-/* ---------- MODAL ---------- */
-.bubble_modal {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-}
-
-.bubble_overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-.bubble_content {
-  position: relative;
-  background-color: var(--background-color);
-  width: 95%;
-  max-width: 1200px;
-  height: 520px;
-  margin: 10vh auto;
-  border-radius: 20px;
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-}
-
-.close_btn {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  font-size: 1.6rem;
-  cursor: pointer;
-  color: var(--font-color-dark);
-}
-
-.bubble_title {
-  font-family: var(--font-fun);
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  color: var(--font-color-dark);
-  text-align: center;
-  flex-shrink: 0;
-}
-
-.bubble_slider {
-  display: flex;
-  gap: 2.5rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 1rem;
-  height: 100%;
-}
-
-.bubble_slider::-webkit-scrollbar {
-  height: 8px;
-}
-
-.bubble_slider::-webkit-scrollbar-thumb {
-  background: var(--fun-color);
-  border-radius: 10px;
-}
-
-.bubble_slide {
-  min-width: 320px;
-  flex-shrink: 0;
-  text-align: center;
-}
-
-.bubble_slide img {
-  width: 100%;
+.bubble_card {
+  width: 240px;
   height: 240px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 1rem;
-  border: 1px solid var(--dark-color);
-}
-
-.bubble_slide p {
-  font-family: var(--font-fun);
-  font-size: 1rem;
-  color: var(--font-color-dark);
 }
