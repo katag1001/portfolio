@@ -16,6 +16,7 @@ const projectData = [
   {
     title: "Wearable",
     coverImage: WearableLogo,
+    link: "https://wearable-psi.vercel.app/",
     images: [
       { src: WearableImage, caption: 'AI-powered outfit recommendations' },
       { src: WearableImage, caption: 'Weather-based clothing suggestions' },
@@ -25,12 +26,14 @@ const projectData = [
   {
     title: "St Albans Evening Rehearsal Orchestra",
     coverImage: OrchestraLogo,
+    link: "https://sta-rehearsal-orchestra.vercel.app/",
     images: [
       { src: OrchestraImage, caption: 'Rehearsal schedule overview' },
       { src: OrchestraImage, caption: 'Orchestra gallery and events' },
     ],
   },
 ];
+
 
 const Projects = () => {
   const containerRef = useRef(null);
@@ -153,7 +156,11 @@ const Projects = () => {
 
           <div className="bubble_content">
             <button className="close_btn" onClick={closeModal}>✕</button>
-            <h2 className="bubble_title">{currentProject.title}</h2>
+            <h2 className="bubble_title">
+  <a href={currentProject.link} target="_blank" rel="noopener noreferrer">
+    {currentProject.title}
+  </a>
+</h2>
             <div className="bubble_slider">
               {currentProject.images.map((img, i) => (
                 <div className="bubble_slide" key={i}>
