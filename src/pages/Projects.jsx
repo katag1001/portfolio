@@ -12,9 +12,30 @@ import './projects.css';
 
 const NUM_DECORATIVE_BUBBLES = 10;
 
+const projectData = [
+  {
+    title: "Wearable",
+    coverImage: WearableLogo,
+    images: [
+      { src: WearableImage, caption: 'AI-powered outfit recommendations' },
+      { src: WearableImage, caption: 'Weather-based clothing suggestions' },
+      { src: WearableImage, caption: 'Personal wardrobe management' },
+    ],
+  },
+  {
+    title: "St Albans Evening Rehearsal Orchestra",
+    coverImage: OrchestraLogo,
+    images: [
+      { src: OrchestraImage, caption: 'Rehearsal schedule overview' },
+      { src: OrchestraImage, caption: 'Orchestra gallery and events' },
+    ],
+  },
+];
+
 const Projects = () => {
   const containerRef = useRef(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [currentProject, setCurrentProject] = useState(null);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -77,15 +98,25 @@ const Projects = () => {
     animate();
   }, []);
 
+  const openModal = (project) => {
+    setCurrentProject(project);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setCurrentProject(null);
+  };
+
   return (
     <div className="full_page">
       <Header />
 
+      {/* Bubbles container */}
       <div
         className={`bubble_background2 ${modalOpen ? 'bubbles_beneath_modal' : ''}`}
         ref={containerRef}
       >
-        {/* Decorative bubbles */}
         {Array.from({ length: NUM_DECORATIVE_BUBBLES }).map((_, idx) => {
           const size = 50 + Math.random() * 100;
           return (
@@ -98,34 +129,42 @@ const Projects = () => {
           );
         })}
 
-        {/* Project Cards */}
-        <div>
-          <div className="bouncing_bubble" data-size={240} style={{ width: 240, height: 240 }}>
+        {projectData.map((proj, idx) => (
+          <div
+            key={idx}
+            className="bouncing_bubble"
+            data-size={240}
+            style={{ width: 240, height: 240 }}
+          >
             <BubbleCard
-              title="Wearable"
-              coverImage={WearableLogo}
-              images={[
-                { src: WearableImage, caption: 'AI-powered outfit recommendations' },
-                { src: WearableImage, caption: 'Weather-based clothing suggestions' },
-                { src: WearableImage, caption: 'Personal wardrobe management' },
-              ]}
-              setModalOpen={setModalOpen}
+              title={proj.title}
+              coverImage={proj.coverImage}
+              images={proj.images}
+              onClick={() => openModal(proj)}
             />
           </div>
+        ))}
+      </div>
 
-          <div className="bouncing_bubble" data-size={240} style={{ width: 240, height: 240 }}>
-            <BubbleCard
-              title="St Albans Evening Rehearsal Orchestra"
-              coverImage={OrchestraLogo}
-              images={[
-                { src: OrchestraImage, caption: 'Rehearsal schedule overview' },
-                { src: OrchestraImage, caption: 'Orchestra gallery and events' },
-              ]}
-              setModalOpen={setModalOpen}
-            />
+      {/* Modal rendered outside of bubbles */}
+      {modalOpen && currentProject && (
+        <div className="bubble_modal">
+          <div className="bubble_overlay" onClick={closeModal} />
+
+          <div className="bubble_content">
+            <button className="close_btn" onClick={closeModal}>✕</button>
+            <h2 className="bubble_title">{currentProject.title}</h2>
+            <div className="bubble_slider">
+              {currentProject.images.map((img, i) => (
+                <div className="bubble_slide" key={i}>
+                  <img src={img.src} alt={`${currentProject.title} ${i}`} />
+                  <p>{img.caption}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
