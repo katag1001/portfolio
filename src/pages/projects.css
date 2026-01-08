@@ -23,8 +23,8 @@
 }
 
 .decorative_bubble {
-  background: pink;
-  opacity: 0.3;
+  background: var(--alternate-color); 
+  opacity: 0.4;
   filter: blur(3px);
   border-radius: 50%;
 }
@@ -40,111 +40,4 @@
   height: 240px;
 }
 
-/*------------------------------Modal popup styles----------------------------------------*/
 
-.bubble_modal {
-  position: fixed;
-  inset: 0;
-  z-index: 999;
-
-}
-
-.bubble_overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.5);
-}
-
-
-.bubble_content {
-  position: relative;
-  background-color: var(--background-color);
-  width: 95%;
-  max-width: 1200px;
-  height: 500px;
-  margin: 12vh auto;
-  border-radius: 20px;
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 10px 40px var(--box-shadow-color);
-  overflow: hidden;
-}
-
-.close_btn {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.5rem;
-  background: none;
-  border: none;
-  font-size: 1.6rem;
-  cursor: pointer;
-  color: var(--font-color-dark);
-}
-
-.bubble_title a {
-  display: block;
-  text-align: center;
-  font-family: var(--font-fun);
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
-  color: var(--font-color-dark);
-  flex-shrink: 0;
-}
-
-
-.bubble_title a:hover {
-  color: var(--font-color-dark);
-  transform: scale(1.05); 
-  text-decoration: none;
-}
-
-.bubble_title a:active {
-  color: var(--font-color-dark);
-  transform: scale(0.98); 
-  text-decoration: none;
-}
-
-.bubble_title a:focus {
-  outline: none;
-}
-
-
-.bubble_slider {
-  display: flex;
-  gap: 2.5rem;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 1rem;
-  height: 100%;
-}
-
-.bubble_slider::-webkit-scrollbar {
-  height: 8px;
-}
-
-.bubble_slider::-webkit-scrollbar-thumb {
-  background: var(--font-color-dark);
-  border-radius: 10px;
-}
-
-.bubble_slide {
-  min-width: 320px;
-  flex-shrink: 0;
-  text-align: center;
-}
-
-.bubble_slide img {
-  width: 100%;
-  height: 240px;
-  object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 1rem;
-  border: 1px solid var(--dark-color);
-}
-
-.bubble_slide p {
-  font-family: var(--font-fun);
-  font-size: 1rem;
-  color: var(--font-color-dark);
-}

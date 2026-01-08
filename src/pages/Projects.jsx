@@ -12,7 +12,7 @@ import OrchestraImage from '../assets/orchestra.png';
 
 import './projects.css';
 
-const NUM_DECORATIVE_BUBBLES = 10;
+const NUM_DECORATIVE_BUBBLES = 12;
 
 const projectData = [
   {

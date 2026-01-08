@@ -63,6 +63,7 @@ html, body {
   width: 120px;
   height: 120px;
   background: var(--alternate-color);
+  opacity: 0.4;
   border-radius: 50%;
   filter: blur(2px);
   animation: floatUp 20s linear infinite;
