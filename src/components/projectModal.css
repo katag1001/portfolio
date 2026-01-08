@@ -169,7 +169,7 @@
 @media (max-width: 768px) {
   .bubble_content {
     width: 95vw;
-    height: 80vh;
+    height: 90vh;
     padding: 1rem 1.5rem;
   }
 
@@ -187,14 +187,14 @@
   }
 
   .bubble_slide_container img {
-    width: 100%;       /* fill width */
-    max-height: 50vh;  /* keep it visible with text */
+    width: 100%;
+    max-height: calc(80vh - 4rem - 3rem); 
+    object-fit: contain;
   }
 
   .bubble_slide_container p {
-    font-size: 14px;   /* smaller font for readability */
-    margin-left: 0;
-    text-align: center;
+    font-size: 14px;
+    margin: 0.5rem 0 0 0;
   }
 
   .bubble_title a {
@@ -216,7 +216,7 @@
   }
 
   .bubble_slide_container img {
-    max-height: 40vh;
+    max-height: calc(75vh - 3rem - 3rem); 
   }
 
   .bubble_slide_container p {
