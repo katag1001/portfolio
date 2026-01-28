@@ -10,7 +10,7 @@ const Bubbles = () => {
       <Header />
       <div className="bubbles_content">
         <div className="bubbles_game_wrapper">
-         <BubbleGame width={900} height={500} />
+         <BubbleGame/>
         </div>
       </div>
     </div>

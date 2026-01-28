@@ -4,16 +4,15 @@ import './bubbleGame.css';
 const LAST_SCORE_KEY = 'bubbleGame_lastScore';
 const BEST_SCORE_KEY = 'bubbleGame_bestScore';
 
-const BubbleGame = ({ width = 420, height = 300 }) => {
+const BubbleGame = () => {
   const [bubbles, setBubbles] = useState([]);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [timePlayed, setTimePlayed] = useState(0);
   const [scoreMessage, setScoreMessage] = useState('');
-  const [finalScore, setFinalScore] = useState(0);
 
   const containerRef = useRef(null);
-  const containerHeightRef = useRef(height);
+  const containerHeightRef = useRef(0);
 
   const animationRef = useRef(null);
   const releaseTimeoutRef = useRef(null);
@@ -22,9 +21,10 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
 
   const isVisibleRef = useRef(!document.hidden);
   const gameStartedRef = useRef(false);
+  const gameOverRef = useRef(false);
   const timePlayedRef = useRef(0);
 
-  const globalSpeedRef = useRef(0.2);
+  const globalSpeedRef = useRef(0.25);
   const bubblesPerReleaseRef = useRef(1);
 
   /* ------------------------------------------------------------ */
@@ -36,14 +36,22 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
   };
 
   /* ------------------------------------------------------------ */
+  const measureContainer = () => {
+    if (containerRef.current) {
+      containerHeightRef.current =
+        containerRef.current.getBoundingClientRect().height;
+    }
+  };
+
+  /* ------------------------------------------------------------ */
   const createBubble = () => {
     const size = 40 + Math.random() * 40;
-    globalSpeedRef.current += 0.03;
+    globalSpeedRef.current += 0.02;
 
     return {
       id: Date.now() + Math.random(),
-      x: Math.random() * (width - size),
-      y: containerHeightRef.current + size, // start below container
+      x: Math.random() * (containerRef.current.clientWidth - size),
+      y: containerHeightRef.current + size, // start BELOW
       size,
       speed: globalSpeedRef.current,
       popped: false,
@@ -67,8 +75,8 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
   const startReleasingBubbles = () => {
     let delay = 700;
 
-    const releaseBubble = () => {
-      if (!isVisibleRef.current || !gameStartedRef.current) return;
+    const release = () => {
+      if (!gameStartedRef.current || !isVisibleRef.current) return;
 
       setBubbles((prev) => [
         ...prev,
@@ -78,11 +86,11 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
         ),
       ]);
 
-      delay += 1;
-      releaseTimeoutRef.current = setTimeout(releaseBubble, delay);
+      delay += 2;
+      releaseTimeoutRef.current = setTimeout(release, delay);
     };
 
-    releaseBubble();
+    release();
 
     bubbleIncrementIntervalRef.current = setInterval(() => {
       bubblesPerReleaseRef.current += 1;
@@ -92,7 +100,7 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
   /* ------------------------------------------------------------ */
   const startAnimation = () => {
     const animate = () => {
-      if (isVisibleRef.current && gameStartedRef.current) {
+      if (gameStartedRef.current && isVisibleRef.current) {
         setBubbles((prev) => {
           for (const b of prev) {
             if (!b.popped && b.y <= 0) {
@@ -110,7 +118,6 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
       animationRef.current = requestAnimationFrame(animate);
     };
 
-    cancelAnimationFrame(animationRef.current);
     animationRef.current = requestAnimationFrame(animate);
   };
 
@@ -124,52 +131,48 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
 
   /* ------------------------------------------------------------ */
   const triggerGameOver = () => {
+    if (gameOverRef.current) return;
+
+    gameOverRef.current = true;
     gameStartedRef.current = false;
+
+    stopAllLoops();
     setGameStarted(false);
     setGameOver(true);
-    stopAllLoops();
 
     const finalTime = timePlayedRef.current;
-    setFinalScore(finalTime);
-
     const lastScore = Number(localStorage.getItem(LAST_SCORE_KEY)) || 0;
     const bestScore = Number(localStorage.getItem(BEST_SCORE_KEY)) || 0;
 
-    let message = '';
-
+    localStorage.setItem(LAST_SCORE_KEY, finalTime);
     if (finalTime > bestScore) {
-      message = `Wow! ${finalTime} seconds! New best score! 🎉`;
+      localStorage.setItem(BEST_SCORE_KEY, finalTime);
+      setScoreMessage(`New best score! 🎉 ${finalTime} seconds`);
     } else if (finalTime > lastScore) {
-      message = `Nice! ${finalTime - lastScore} seconds longer than last time 👏`;
+      setScoreMessage(`Nice! ${finalTime - lastScore}s better than last time 👏`);
+    } else {
+      setScoreMessage('');
     }
-
-    setScoreMessage(message);
   };
 
   /* ------------------------------------------------------------ */
   const startGame = () => {
-    if (gameOver && finalScore > 0) {
-      localStorage.setItem(LAST_SCORE_KEY, finalScore);
-
-      const bestScore = Number(localStorage.getItem(BEST_SCORE_KEY)) || 0;
-      if (finalScore > bestScore) {
-        localStorage.setItem(BEST_SCORE_KEY, finalScore);
-      }
-    }
-
     stopAllLoops();
+    measureContainer();
 
-    timePlayedRef.current = 0;
-    setTimePlayed(0);
     setBubbles([]);
     setGameOver(false);
     setScoreMessage('');
-    setFinalScore(0);
-    setGameStarted(true);
-    gameStartedRef.current = true;
+    setTimePlayed(0);
 
-    globalSpeedRef.current = 0.2;
+    timePlayedRef.current = 0;
+    gameStartedRef.current = true;
+    gameOverRef.current = false;
+
+    globalSpeedRef.current = 0.25;
     bubblesPerReleaseRef.current = 1;
+
+    setGameStarted(true);
 
     startReleasingBubbles();
     startAnimation();
@@ -177,43 +180,34 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
   };
 
   /* ------------------------------------------------------------ */
-  useEffect(() => {
-    if (containerRef.current) {
-      containerHeightRef.current =
-        containerRef.current.getBoundingClientRect().height;
+useEffect(() => {
+  const handleVisibilityChange = () => {
+    isVisibleRef.current = !document.hidden;
+
+    if (!isVisibleRef.current) {
+      stopAllLoops();
+    } else if (gameStartedRef.current && !gameOverRef.current) {
+      // Resume loops
+      startReleasingBubbles();
+      startAnimation();
+      startTimer();
     }
-  }, [width, height]);
+  };
 
-  /* ------------------------------------------------------------ */
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      isVisibleRef.current = !document.hidden;
+  document.addEventListener('visibilitychange', handleVisibilityChange);
+  return () => {
+    document.removeEventListener('visibilitychange', handleVisibilityChange);
+  };
+}, []);
 
-      if (!isVisibleRef.current) {
-        stopAllLoops();
-      } else if (gameStartedRef.current) {
-        startReleasingBubbles();
-        startAnimation();
-        startTimer();
-      }
-    };
-
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-    return () =>
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
-  }, []);
 
   /* ------------------------------------------------------------ */
   return (
-    <div
-      ref={containerRef}
-      className="game_window"
-      style={{ width: `${width}px`, height: `${height}px` }}
-    >
+    <div ref={containerRef} className="game_window">
       {!gameStarted && !gameOver && (
         <div className="game_overlay">
           <div className="game_popup">
-            <h2>Ready to pop? Don't let them get to the top!</h2>
+            <h2>Ready to pop?</h2>
             <button className="game_go" onClick={startGame}>
               GO
             </button>
@@ -238,14 +232,12 @@ const BubbleGame = ({ width = 420, height = 300 }) => {
         {bubbles.map(({ id, x, y, size, popped }) => (
           <span
             key={id}
-            className={`game_bubble ${
-              popped ? 'game_bubble_popped' : ''
-            }`}
+            className={`game_bubble ${popped ? 'game_bubble_popped' : ''}`}
             style={{
-              width: `${size}px`,
-              height: `${size}px`,
-              left: `${x}px`,
-              top: `${y}px`,
+              width: size,
+              height: size,
+              left: x,
+              top: y,
             }}
             onMouseEnter={() => handlePop(id)}
             onTouchStart={() => handlePop(id)}

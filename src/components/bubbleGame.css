@@ -1,17 +1,20 @@
-:root {
-  --background-color: rgba(248, 241, 244, 1);    
-  --alternate-color: rgba(233, 196, 207, 0.95); 
-  --dark-color: rgba(58, 34, 29, 1);          
-  --light-color: rgba(255, 252, 253, 0.9);      
-  --fun-color: rgb(154, 90, 107);         
-  --box-shadow-color: rgba(60, 32, 40, 0.12);    
-  --cursor-color:rgb(154, 90, 107); 
-  --font-color-light: rgba(248, 241, 244, 1);
-  --font-color-dark: rgba(60, 32, 40, 1);
-  --font-body: 'Inter', sans-serif;
-  --font-heading: 'Playfair Display', serif;
-  --font-fun: 'DM Sans', sans-serif;   
+/* ---------------- GAME SIZE (LOCKED) ---------------- */
+
+/* Desktop */
+.game_window {
+  width: 800px;
+  height: 450px;
 }
+
+/* Mobile */
+@media (max-width: 600px) {
+  .game_window {
+    width: 300px;
+    height: 400px;
+  }
+}
+
+/* ---------------------------------------------------- */
 
 .game_window {
   position: relative;
@@ -38,126 +41,46 @@
   touch-action: manipulation;
 }
 
-
 .game_bubble_popped {
   animation: game_pop 0.3s forwards;
 }
 
+/* ---------------- POPUP ---------------- */
 
-/* ------------------------ GAME POPUP STYLING ------------------------ */
-
-/* Overlay (darkened background) */
 .game_overlay {
   position: absolute;
   inset: 0;
-  background: rgba(60, 32, 40, 0.6); 
+  background: rgba(60, 32, 40, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
 }
 
-/* Modal container */
 .game_popup {
-  background: var(--alternate-color); 
+  background: var(--alternate-color);
   padding: 2.5rem 3rem;
   border-radius: 15px;
   text-align: center;
-  max-width: 500px;
   width: 90%;
-  box-shadow: 0 15px 40px var(--box-shadow-color);
-  animation: popupFade 0.4s ease-out;
+  max-width: 400px;
 }
 
-/* Headings and text */
-.game_popup h2 {
-  margin-bottom: 1.5rem;
-  font-family: var(--font-fun);
-  font-size: 1.8rem;
-  color: var(--font-color-dark);
-}
-
-.game_popup p {
-  margin-bottom: 2rem;
-  font-size: 1rem;
-  font-family: var(--font-fun);
-  color: var(--font-color-dark);
-}
-
-/* Buttons container */
-.game_popup_buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-}
-
-/* Buttons */
-.game_popup button {
+.game_go {
+  margin-top: 1.5rem;
   padding: 0.8rem 2rem;
   border-radius: 8px;
-  font-size: 1rem;
-  font-family: var(--font-fun);
-  font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Yes/Primary button */
-.game_popup .game_go {
-  background-color: var(--dark-color);
+  font-weight: 600;
+  background: var(--dark-color);
   color: var(--font-color-light);
 }
 
-.game_popup .game_yes:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 15px var(--box-shadow-color);
-}
-
-/* No/Secondary button */
-.game_popup .game_no {
-  background-color: transparent;
-  border: 2px solid var(--dark-color);
-  color: var(--dark-color);
-}
-
-.game_popup .game_no:hover {
-  background-color: var(--dark-color);
-  color: var(--font-color-light);
-}
-
-@keyframes popupFade {
-  from { transform: scale(0.8); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-/* ------------------------ GAME BUBBLES ------------------------ */
-.game_bubble {
-  position: absolute; 
-  border-radius: 50%;
-  background: var(--alternate-color);
-  filter: blur(2px);
-  pointer-events: auto;
-  transform-origin: center bottom;
-}
-
+/* ---------------- ANIMATIONS ---------------- */
 
 @keyframes game_pop {
   0% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.5); opacity: 0.7; }
   100% { transform: scale(0); opacity: 0; }
 }
-
-
-
-
-/* Responsive changes ------------------------------------------- */
-
-
-
-
-
-
-
-
-
