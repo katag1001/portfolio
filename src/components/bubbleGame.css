@@ -20,8 +20,7 @@
   border-radius: 8px;
   background-color: transparent;
   box-shadow: 0 6px 20px var(--box-shadow-color);
-  width: 900px;
-  height: 500px;
+  touch-action: manipulation;
 }
 
 .game_bubble_layer {
@@ -31,17 +30,19 @@
 }
 
 .game_bubble {
-  position: absolute; 
+  position: absolute;
   border-radius: 50%;
   background: var(--alternate-color);
   filter: blur(2px);
   pointer-events: auto;
-  transform-origin: center bottom;
+  touch-action: manipulation;
 }
+
 
 .game_bubble_popped {
   animation: game_pop 0.3s forwards;
 }
+
 
 /* ------------------------ GAME POPUP STYLING ------------------------ */
 
@@ -49,7 +50,7 @@
 .game_overlay {
   position: absolute;
   inset: 0;
-  background: rgba(60, 32, 40, 0.6); /* match CV popup overlay */
+  background: rgba(60, 32, 40, 0.6); 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -140,12 +141,23 @@
   transform-origin: center bottom;
 }
 
-.game_bubble_popped {
-  animation: game_pop 0.3s forwards;
-}
 
 @keyframes game_pop {
   0% { transform: scale(1); opacity: 1; }
   50% { transform: scale(1.5); opacity: 0.7; }
   100% { transform: scale(0); opacity: 0; }
 }
+
+
+
+
+/* Responsive changes ------------------------------------------- */
+
+
+
+
+
+
+
+
+
