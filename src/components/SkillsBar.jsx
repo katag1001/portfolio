@@ -6,14 +6,11 @@ const SkillsBar = ({ items }) => {
     <div className="skills_bar_wrapper">
       <div className="marquee">
         <div className="marquee__inner">
-
-          {items.map((item, i) => (
+          {[...items, ...items].map((item, i) => (
             <span key={i} className="skill_item">
               {item}
             </span>
           ))}
-
-    
         </div>
       </div>
     </div>

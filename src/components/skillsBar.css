@@ -32,6 +32,7 @@
   gap: 3rem;
   white-space: nowrap;
   animation: marquee 35s linear infinite;
+  will-change: transform;
 }
 
 /* Skill items */
@@ -45,19 +46,23 @@
 
 
 @keyframes marquee {
-  0% {
+  from {
     transform: translateX(0);
   }
-  100% {
+  to {
     transform: translateX(-50%);
   }
 }
 
-/* Mobile adjustments */
+.marquee:hover .marquee__inner {
+  animation-play-state: paused;
+}
+
+/* Mobile adjustments ------------------------------------------------------------ */
 @media (max-width: 768px) {
   .marquee__inner {
     gap: 2rem;
-    animation-duration: 50s; /* slower on smaller screens */
+    animation-duration: 50s;
   }
 
   .skill_item {
