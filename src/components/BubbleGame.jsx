@@ -207,7 +207,7 @@ useEffect(() => {
       {!gameStarted && !gameOver && (
         <div className="game_overlay">
           <div className="game_popup">
-            <h2>Ready to pop? Don't let them get to the top</h2>
+            <h2>Ready to pop? Don't let them get to the top!</h2>
             <button className="game_go" onClick={startGame}>
               GO
             </button>
