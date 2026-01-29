@@ -39,6 +39,7 @@
   filter: blur(2px);
   pointer-events: auto;
   touch-action: manipulation;
+  opacity: 0.4;
 }
 
 .game_bubble_popped {
